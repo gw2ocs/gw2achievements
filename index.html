@@ -38,11 +38,12 @@
 		body {
 			display: grid;
 			grid-template-areas: 
-				"header header"
+				"aside header"
 				"aside main"
-				"footer footer";
+				"aside footer";
 			grid-template-columns: 25% 75%;
 			grid-template-rows: auto 1fr auto;
+			font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 			height: 100vh;
 			margin: 0;
 			padding: 0;
@@ -69,6 +70,11 @@
 			justify-content: flex-start;
 		}
 
+		.options header {
+			font-size: larger;
+			padding: 1rem 0;
+		}
+
 		.options details {
 			width: 100%;
 		}
@@ -84,6 +90,7 @@
 			background-color: dimgray;
 			text-align: center;
 			color: antiquewhite;
+			padding: .5rem 0;
 		}
 
 		.options ul {
@@ -113,7 +120,6 @@
 			border: 1px solid #000a;
 			background-color: #1a1a1a;
 			color: white;
-			font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 			width: 318px;
 			height: 90px;
 			min-height: 90px;
@@ -124,10 +130,6 @@
 			line-height: 16px;
 			letter-spacing: -.045em;
 			position: relative;
-		}
-
-		[data-theme=halloween] {
-			--theme-color: #96589F;
 		}
 
 		[data-theme=general] {
@@ -152,6 +154,14 @@
 
 		[data-theme=community] {
 			--theme-color: #44b6d7;
+		}
+
+		[data-theme=festival] {
+			--theme-color: #96589F;
+		}
+
+		[data-theme=dragons-stand] {
+			--theme-color: #ba3aa9;
 		}
 
 		[data-theme] {
@@ -238,6 +248,7 @@
 	</main>
 
 	<aside class="layout-aside options">
+		<header>Options</header>
 		<details open>
 			<summary>Thumbnail</summary>
 			<ul class="thumbnail-list">
@@ -349,6 +360,7 @@
 				<li><button><img src="img/achievements/Queen_Jennah's_Jubilee.png" alt="Queen_Jennah's_Jubilee" title="Queen_Jennah's_Jubilee"></button></li>
 				<li><button><img src="img/achievements/Queen's_Gauntlet_(achievements).png" alt="Queen's_Gauntlet_(achievements)" title="Queen's_Gauntlet_(achievements)"></button></li>
 				<li><button><img src="img/achievements/Rare_Collections.png" alt="Rare_Collections" title="Rare_Collections"></button></li>
+				<li><button><img src="img/achievements/Retired_Achievements.png" alt="Rare_Collections" title="Rare_Collections"></button></li>
 				<li><button><img src="img/achievements/Revenge_of_the_Capricorn.png" alt="Revenge_of_the_Capricorn" title="Revenge_of_the_Capricorn"></button></li>
 				<li><button><img src="img/achievements/Rising_Flames.png" alt="Rising_Flames" title="Rising_Flames"></button></li>
 				<li><button><img src="img/achievements/Roller_Beetle_Racing.png" alt="Roller_Beetle_Racing" title="Roller_Beetle_Racing"></button></li>
@@ -413,13 +425,14 @@
 		<details open>
 			<summary>Theme</summary>
 			<ul class="theme-list">
-				<li><button data-theme="halloween"></button></li>
 				<li><button data-theme="general"></button></li>
 				<li><button data-theme="pvp"></button></li>
 				<li><button data-theme="wvw"></button></li>
 				<li><button data-theme="legendary-weapon"></button></li>
 				<li><button data-theme="legendary-bag"></button></li>
 				<li><button data-theme="community"></button></li>
+				<li><button data-theme="festival"></button></li>
+				<li><button data-theme="dragons-stand"></button></li>
 			</ul>
 		</details>
 	</aside>
