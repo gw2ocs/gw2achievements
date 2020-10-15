@@ -110,6 +110,7 @@
 
 		.theme-list li {
 			width: 100%;
+			max-width: 318px;
 		}
 
 		.theme-list button {
@@ -134,41 +135,43 @@
 		}
 
 		[data-theme=general] {
-			--theme-color: #59A376;
+			--theme-color: hsl(144, 29%, 49%);
 		}
 
 		[data-theme=wvw] {
-			--theme-color: #D82825;
+			--theme-color: hsl(1, 71%, 50%);
 		}
 
 		[data-theme=pvp] {
-			--theme-color: #e97e47;
+			--theme-color: hsl(20, 79%, 60%);
 		}
 
 		[data-theme=legendary-bag] {
-			--theme-color: #DC9AE7;
+			--theme-color: hsl(291, 62%, 75%);
 		}
 
 		[data-theme=legendary-weapon] {
-			--theme-color: #b2ba25;
+			--theme-color: hsl(63, 67%, 44%);
 		}
 
 		[data-theme=community] {
-			--theme-color: #44b6d7;
+			--theme-color: hsl(193, 65%, 55%);
 		}
 
 		[data-theme=festival] {
-			--theme-color: #96589F;
+			--theme-color: hsl(292, 29%, 48%);
 		}
 
 		[data-theme=dragons-stand] {
-			--theme-color: #ba3aa9;
+			--theme-color: hsl(308, 52%, 48%);
 		}
 
 		[data-theme] {
-			background: -moz-radial-gradient(75% 208.07% at 17.92% 27.22%, var(--theme-color) 0%, rgba(26, 26, 26, 0) 100%), #1A1A1A;
-			background: -webkit-radial-gradient(75% 208.07% at 17.92% 27.22%, var(--theme-color) 0%, rgba(26, 26, 26, 0) 100%), #1A1A1A;
 			background: radial-gradient(52.85% 87.22% at 18.24% 36.11%, var(--theme-color) 0%, rgba(26, 26, 26, 0) 100%), #1A1A1A;
+		}
+
+		[data-theme] .achievement-description {
+			color: var(--theme-color);
 		}
 
 		.achievement-thumbnail {
