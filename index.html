@@ -219,12 +219,12 @@
 			}
 			for (let i = saveButtons.length -1 ; i >= 00 ; i--) {
 				const button = saveButtons[i];
-				const { type } = button.dataset;
+				const { ext, type } = button.dataset;
 				button.addEventListener('click', (e) => {
 					html2canvas(achievement, {
 						logging: false
 					}).then(canvas => {
-						downloadLink.setAttribute('download', `achievement.${type}`);
+						downloadLink.setAttribute('download', `achievement.${ext}`);
 						downloadLink.href = canvas.toDataURL(`image/${type}`);
 						downloadLink.click();
 					});
@@ -248,9 +248,9 @@
 		</article>
 		<p>
 			Save as: 
-			<button class="js-save" data-type="png">PNG</button>
-			<button class="js-save" data-type="jpg">JPG</button>
-			<button class="js-save" data-type="webp">WEBP (Chrome)</button>
+			<button class="js-save" data-type="png" data-ext="png">PNG</button>
+			<button class="js-save" data-type="jpeg" data-ext="jpg">JPG</button>
+			<button class="js-save" data-type="webp" data-ext="webp">WEBP (Chrome)</button>
 			<a class="js-download" hidden></a>
 		</p>
 	</main>
