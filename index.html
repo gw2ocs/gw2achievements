@@ -66,6 +66,7 @@
 		}
 
 		.options {
+			--summary-height: 32px;
 			display: flex;
 			flex-direction: column;
 			flex-wrap: nowrap;
@@ -79,21 +80,19 @@
 
 		.options details {
 			width: 100%;
+			min-height: 0;
 		}
 
 		.options details[open] {
-			overflow-y: auto;
-			scrollbar-width: thin;
 			flex: 1;
 		}
 
 		.options summary {
-			position: sticky;
-			top: 0;
 			background-color: dimgray;
 			text-align: center;
 			color: antiquewhite;
-			padding: .5rem 0;
+			height: var(--summary-height);
+			line-height: var(--summary-height);
 		}
 
 		.options ul {
@@ -104,6 +103,10 @@
 			list-style: none;
 			margin: 0;
 			padding: 0;
+			height: calc(100% - var(--summary-height));
+			min-height: 0;
+			overflow-y: auto;
+			scrollbar-width: thin;
 		}
 
 		.options li {
