@@ -251,6 +251,19 @@
 					});
 				});
 			}
+
+			// I hate you, Chrome
+			const detailsEls = document.querySelectorAll('.options details');
+			for (let i = detailsEls.length - 1 ; i >= 0 ; i--) {
+				const detailsEl = detailsEls[i];
+					summaryEl = detailsEl.querySelector('summary'),
+					ulEl = detailsEl.querySelector('ul');
+
+				const expectedSize = detailsEl.clientHeight - summaryEl.offsetHeight;
+				if (ulEl.offsetHeight > expectedSize) {
+					ulEl.style.height = `${expectedSize}px`;
+				}
+			}
 		});
 	</script>
 </head>
