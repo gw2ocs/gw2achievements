@@ -154,17 +154,15 @@
 			position: relative;
 		}
 
-		.achievement::before {
+		.achievement-thumbnail-background {
 			position: absolute;
-			content: ' ';
 			top: 0;
 			left: 0;
 			width: 90px;
 			height: 90px;
-			background-image: url(img/605008.png);
+			background-image: url(img/605008.png), url(img/605009.png);
 			background-position: 50% 50%;
 			background-size: 155%;
-			z-index: 10;
 		}
 
 		[data-theme=general] {
@@ -215,7 +213,6 @@
 		.achievement-thumbnail {
 			width: 110px;
 			padding-left: 13px;
-			z-index: 11;
 		}
 
 		.achievement-content {
@@ -288,6 +285,7 @@
 	
 	<main class="layout-main">
 		<article class="achievement" id="achievement">
+			<div class="achievement-thumbnail-background"></div>
 			<div class="achievement-thumbnail"></div>
 			<div class="achievement-content">
 				<header class="achievement-title" contenteditable="true" spellcheck="false">Achievement's title</header>
