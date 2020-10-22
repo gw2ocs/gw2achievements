@@ -154,6 +154,19 @@
 			position: relative;
 		}
 
+		.achievement::before {
+			position: absolute;
+			content: ' ';
+			top: 0;
+			left: 0;
+			width: 90px;
+			width: 90px;
+			background-image: url(img/605008.png);
+			background-position: 50% 50%;
+			background-size: 155%;
+			z-index: 10;
+		}
+
 		[data-theme=general] {
 			--theme-color: hsl(144, 29%, 49%);
 		}
@@ -202,6 +215,7 @@
 		.achievement-thumbnail {
 			width: 110px;
 			padding-left: 13px;
+			z-index: 11;
 		}
 
 		.achievement-content {
