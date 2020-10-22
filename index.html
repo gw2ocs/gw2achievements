@@ -154,15 +154,17 @@
 			position: relative;
 		}
 
-		.achievement-thumbnail-background {
+		.achievement::before {
 			position: absolute;
+			content: ' ';
 			top: 0;
 			left: 0;
-			width: 90px;
+			width: 100px;
 			height: 90px;
 			background-image: url(img/605008.png), url(img/605009.png);
-			background-position: 50% 50%;
-			background-size: 155%;
+			background-position: -39px -34px;
+			background-size: 158px;
+			opacity: .8;
 		}
 
 		[data-theme=general] {
