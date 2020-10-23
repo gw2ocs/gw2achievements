@@ -164,7 +164,7 @@
 			background-image: url(img/605008.png), url(img/605009.png);
 			background-position: -39px -34px;
 			background-size: 158px;
-			opacity: .7;
+			opacity: .6;
 		}
 
 		[data-theme=general] {
@@ -280,6 +280,7 @@
 					}
 				}
 			}
+			fixChrome();
 			window.addEventListener('resize', fixChrome);
 			for (let i = detailsEls.length - 1 ; i >= 0 ; i--) {
 				const detailsEl = detailsEls[i];
