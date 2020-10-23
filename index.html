@@ -17,13 +17,13 @@
 		:root {
 			--summary-height: 32px;
 			--text-color: antiquewhite;
+			--background-color: #1a1a1a;
 		}
 
 		.layout-header {
 			grid-area: header;
 			text-align: left;
-			color: var(--text-color);
-			background-color: #1a1a1a;
+			z-index: 1;
 			/*background-image: url(img/ui/header_background.png);*/
 			background-size: 100% 100%;
 		}
@@ -40,6 +40,7 @@
 			flex-direction: column;
 			align-items: center;
 			justify-content: center;
+			background-image: radial-gradient(#2b2b2b, var(--background-color));
 		}
 
 		.layout-aside {
@@ -55,6 +56,12 @@
 			text-align: center;
 		}
 
+		.layout-header,
+		.layout-aside,
+		.layout-footer {
+			box-shadow: 0 0 16px 0px black;
+		}
+
 		body {
 			display: grid;
 			grid-template-areas: 
@@ -67,6 +74,8 @@
 			height: 100vh;
 			margin: 0;
 			padding: 0;
+			color: var(--text-color);
+			background-color: ;
 		}
 
 		html {
@@ -105,7 +114,7 @@
 			background-size: 100% 100%;
 			text-align: center;
 			color: var(--text-color);
-			text-shadow: 0 0 3px #1a1a1a;
+			text-shadow: 0 0 3px var(--background-color);
 			height: var(--summary-height);
 			line-height: var(--summary-height);
 		}
@@ -140,7 +149,7 @@
 
 		.achievement {
 			border: 1px solid #000a;
-			background-color: #1a1a1a;
+			background-color: var(--background-color);
 			color: white;
 			width: 318px;
 			height: 90px;
