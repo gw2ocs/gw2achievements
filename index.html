@@ -5,9 +5,10 @@
 	<meta charset="UTF-8"/>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<meta name="color-scheme" content="dark">
+	<meta name="theme-color" content="1a1a1a"/>
 	<link rel="icon" type="image/png" sizes="64x64" href="/img/achievements/Shadow_of_the_Mad_King.png"/>
 	<meta name="author" content="Pandraghon"/>
-	<meta name="theme-color" content="1a1a1a"/>
 	<meta name="description" content="Generate your own Guild Wars 2 achievement and export it to any image format."/>
 	<style>
 		:root {
@@ -52,7 +53,7 @@
 
 		.layout-main {
 			grid-area: main;
-			min-height: 0;
+			min-height: 180px;
 			display: flex;
 			flex-direction: column;
 			align-items: center;
@@ -80,7 +81,7 @@
 				"header header"
 				"aside main"
 				"aside footer";
-			grid-template-columns: 25% 75%;
+			grid-template-columns: 30% 70%;
 			grid-template-rows: auto 1fr auto;
 			font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 			height: 100vh;
@@ -93,6 +94,10 @@
 		html {
 			margin: 0;
 			padding: 0;
+		}
+
+		a {
+			color: ghostwhite;
 		}
 
 		.results {
@@ -157,6 +162,10 @@
 		.theme-list button {
 			width: 100%;
 			height: 90px;
+		}
+
+		.layout-main > p {
+			margin-bottom: 0;
 		}
 
 		.achievement {
@@ -250,6 +259,27 @@
 
 		.achievement-description {
 			margin: 0;
+		}
+
+		@media (max-width: 600px) {
+			body {
+				display: grid;
+				grid-template-areas: 
+					"header"
+					"main"
+					"aside"
+					"footer";
+				grid-template-columns: 100%;
+				grid-template-rows: auto 1fr auto auto;
+			}
+
+			.layout-header h1 {
+				text-align: center;
+			}
+
+			.options {
+				justify-content: flex-end;
+			}
 		}
 	</style>
 
