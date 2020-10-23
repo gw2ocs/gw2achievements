@@ -10,20 +10,37 @@
 	<meta name="theme-color" content="1a1a1a"/>
 	<meta name="description" content="Generate your own Guild Wars 2 achievement and export it to any image format."/>
 	<style>
-		* {
-			box-sizing: border-box;
-		}
-		
 		:root {
 			--summary-height: 32px;
 			--text-color: antiquewhite;
 			--background-color: #1a1a1a;
+			--scrollbar-color: #3c3c3c;
+			--scrollbar-background: var(--background-color);
+		}
+
+		* {
+			box-sizing: border-box;
+			scrollbar-width: thin;
+			scrollbar-color: var(--scrollbar-color) var(--scrollbar-background);
+		}
+		
+		::-webkit-scrollbar {
+			width: 11px;
+		}
+
+		::-webkit-scrollbar-track {
+			background: var(--scrollbar-background);
+		}
+
+		::-webkit-scrollbar-thumb {
+			background-color: var(--scrollbar-color) ;
+			border-radius: 6px;
+			border: 2px solid var(--scrollbar-background);
 		}
 
 		.layout-header {
 			grid-area: header;
 			text-align: left;
-			z-index: 1;
 			/*background-image: url(img/ui/header_background.png);*/
 			background-size: 100% 100%;
 		}
@@ -41,6 +58,7 @@
 			align-items: center;
 			justify-content: center;
 			background-image: radial-gradient(#2b2b2b, var(--background-color));
+			box-shadow: 0 0 16px 0px black inset;
 		}
 
 		.layout-aside {
@@ -54,12 +72,6 @@
 		.layout-footer {
 			grid-area: footer;
 			text-align: center;
-		}
-
-		.layout-header,
-		.layout-aside,
-		.layout-footer {
-			box-shadow: 0 0 16px 0px black;
 		}
 
 		body {
