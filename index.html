@@ -293,6 +293,21 @@
 
 	<script src="js/html2canvas.min.js" defer></script>
 	<script defer>
+		const availableLanguages = ['de', 'en', 'es', 'fr'];
+		function translate(terms) {
+			const els = document.querySelectorAll('[data-t]');
+			for (let i = els.length - 1 ; i >= 0 ; i--) {
+				const el = els[i];
+				const path = el.dataset.t;
+				el.innerHTML = path.split('.').reduce((acc, cur) => acc[cur], terms);
+			}
+		}
+		async function getTranslation(lang = 'en') {
+			await fetch(`https://gw2achievements.com/i18n/${lang}.json`)
+				.then(response => response.json())
+				.then(terms => translate(terms))
+				.catch(err => console.error(`Error while loading the ${lang} translation: ${err}`))
+		}
 		window.addEventListener('load', () => {
 			const achievement = document.getElementById('achievement');
 			const thumbnailButtons = document.querySelectorAll('.thumbnail-list button');
@@ -323,6 +338,15 @@
 						downloadLink.click();
 					});
 				});
+			}
+
+			const userLanguages = navigator.languages;
+			for (let i = 0, imax = userLanguages.length ; i < imax ; i++) {
+				const language = userLanguages[i];
+				if (availableLanguages.indexOf(language) != -1) {
+					getTranslation(language);
+					break;
+				}
 			}
 
 			// I hate you, Chrome
@@ -357,12 +381,12 @@
 		<article class="achievement" id="achievement">
 			<div class="achievement-thumbnail"></div>
 			<div class="achievement-content">
-				<header class="achievement-title" contenteditable="true" spellcheck="false">Achievement's title</header>
-				<p class="achievement-description">Completed</p>
+				<header class="achievement-title" contenteditable="true" spellcheck="false" data-t="achievement.title">Achievement's title</header>
+				<p class="achievement-description" data-t="achievement.completed">Completed</p>
 			</div>
 		</article>
 		<p>
-			Save as: 
+			<span data-t="main.save_as">Save as:</span>
 			<button class="js-save" data-type="png" data-ext="png">PNG</button>
 			<button class="js-save" data-type="jpeg" data-ext="jpg">JPG</button>
 			<button class="js-save" data-type="gif" data-ext="gif">GIF</button>
@@ -373,7 +397,7 @@
 
 	<aside class="layout-aside options">
 		<details open>
-			<summary>Thumbnail</summary>
+			<summary data-t="options.thumbnail">Thumbnail</summary>
 			<ul class="thumbnail-list">
 				<li><button><img src="img/achievements/A_Bug_in_the_System.png" alt="A_Bug_in_the_System" title="A_Bug_in_the_System"></button></li>
 				<li><button><img src="img/achievements/A_Crack_in_the_Ice.png" alt="A_Crack_in_the_Ice" title="A_Crack_in_the_Ice"></button></li>
@@ -546,7 +570,7 @@
 			</ul>
 		</details>
 		<details open>
-			<summary>Theme</summary>
+			<summary data-t="options.theme">Theme</summary>
 			<ul class="theme-list">
 				<li><button data-theme="general"></button></li>
 				<li><button data-theme="pvp"></button></li>
@@ -562,13 +586,13 @@
 
 	<footer class="layout-footer">
 		<details>
-			<summary>Info</summary>
-			<p>Made by Pandraghon</p>
+			<summary data-t="footer.title">Info</summary>
+			<p data-t="footer.author">Made by Pandraghon</p>
 			<hr/>
-			<p><a href="https://html2canvas.hertzen.com/" rel="noreferrer">html2canvas</a> is used to generate achievement images.</p>
+			<p data-t="footer.html2canvas"><a href="https://html2canvas.hertzen.com/" rel="noreferrer">html2canvas</a> is used to generate achievement images.</p>
 			<hr/>
-			<p>ArenaNet copyright notice: © 2015 ArenaNet, LLC. All rights reserved. NCSOFT, the interlocking NC logo, ArenaNet, Guild Wars, Guild Wars Factions, Guild Wars Nightfall, Guild Wars: Eye of the North, Guild Wars 2, and all associated logos and designs are trademarks or registered trademarks of NCSOFT Corporation. All other trademarks are the property of their respective owners.</p>
-			<p>This website is in no way affiliated with ArenaNet, LLC. - NCSOFT or any of its affiliates or subsidiaries.</p>
+			<p data-t="footer.copyright_arenanet">ArenaNet copyright notice: © 2015 ArenaNet, LLC. All rights reserved. NCSOFT, the interlocking NC logo, ArenaNet, Guild Wars, Guild Wars Factions, Guild Wars Nightfall, Guild Wars: Eye of the North, Guild Wars 2, and all associated logos and designs are trademarks or registered trademarks of NCSOFT Corporation. All other trademarks are the property of their respective owners.</p>
+			<p data-t="footer.not_affiliated">This website is in no way affiliated with ArenaNet, LLC. - NCSOFT or any of its affiliates or subsidiaries.</p>
 			<hr/>
 			<p><a href="https://github.com/gw2ocs/gw2achievements">Github</a></p>
 		</details>
