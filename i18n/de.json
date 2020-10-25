@@ -1,0 +1,20 @@
+{
+    "options": {
+        "thumbnail": "",
+        "theme": ""
+    },
+    "main": {
+        "save_as": ""
+    },
+    "footer": {
+        "title": "",
+        "author": "",
+        "html2canvas": "",
+        "copyright_arenanet": "",
+        "not_affiliated": ""
+    },
+    "achievement": {
+        "title": "",
+        "completed": ""
+    }
+}
