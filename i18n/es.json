@@ -1,20 +1,20 @@
 {
     "options": {
-        "thumbnail": "",
-        "theme": ""
+        "thumbnail": "Miniatura",
+        "theme": "Tema"
     },
     "main": {
-        "save_as": ""
+        "save_as": "Guardar como :"
     },
     "footer": {
-        "title": "",
-        "author": "",
-        "html2canvas": "",
-        "copyright_arenanet": "",
-        "not_affiliated": ""
+        "title": "Info",
+        "author": "Realizado por Pandraghon.",
+        "html2canvas": "<a href=\"https://html2canvas.hertzen.com/\" rel=\"noreferrer\">html2canvas</a> se utiliza para generar las imágenes de los logros.",
+        "copyright_arenanet": "ArenaNet copyright notice: © 2015 ArenaNet, LLC. All rights reserved. NCSOFT, the interlocking NC logo, ArenaNet, Guild Wars, Guild Wars Factions, Guild Wars Nightfall, Guild Wars: Eye of the North, Guild Wars 2, and all associated logos and designs are trademarks or registered trademarks of NCSOFT Corporation. All other trademarks are the property of their respective owners.",
+        "not_affiliated": "Este sitio web no está afiliado de ninguna manera a ArenaNet, LLC. - NCSOFT o cualquiera de sus afiliadas o subsidiarias."
     },
     "achievement": {
-        "title": "",
-        "completed": ""
+        "title": "Título del logro",
+        "completed": "Finalizado"
     }
 }
