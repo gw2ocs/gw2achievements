@@ -299,7 +299,10 @@
 			for (let i = els.length - 1 ; i >= 0 ; i--) {
 				const el = els[i];
 				const path = el.dataset.t;
-				el.innerHTML = path.split('.').reduce((acc, cur) => acc[cur], terms);
+				const translation = path.split('.').reduce((acc, cur) => acc[cur], terms);
+				if (translation) {
+					el.innerHTML = translation;
+				}
 			}
 		}
 		async function getTranslation(lang = 'en') {
@@ -399,174 +402,174 @@
 		<details open>
 			<summary data-t="options.thumbnail">Thumbnail</summary>
 			<ul class="thumbnail-list">
-				<li><button><img src="img/achievements/A_Bug_in_the_System.png" alt="A_Bug_in_the_System" title="A_Bug_in_the_System"></button></li>
-				<li><button><img src="img/achievements/A_Crack_in_the_Ice.png" alt="A_Crack_in_the_Ice" title="A_Crack_in_the_Ice"></button></li>
-				<li><button><img src="img/achievements/Activities.png" alt="Activities" title="Activities"></button></li>
-				<li><button><img src="img/achievements/All_or_Nothing.png" alt="All_or_Nothing" title="All_or_Nothing"></button></li>
-				<li><button><img src="img/achievements/Anomalous_Occurrences.png" alt="Anomalous_Occurrences" title="Anomalous_Occurrences"></button></li>
-				<li><button><img src="img/achievements/A_Star_to_Guide_Us.png" alt="A_Star_to_Guide_Us" title="A_Star_to_Guide_Us"></button></li>
-				<li><button><img src="img/achievements/Auric_Basin.png" alt="Auric_Basin" title="Auric_Basin"></button></li>
-				<li><button><img src="img/achievements/Bar_Brawl_(achievements).png" alt="Bar_Brawl_(achievements)" title="Bar_Brawl_(achievements)"></button></li>
-				<li><button><img src="img/achievements/Basic_Collections.png" alt="Basic_Collections" title="Basic_Collections"></button></li>
-				<li><button><img src="img/achievements/Battle_of_Champion's_Dusk.png" alt="Battle_of_Champion's_Dusk" title="Battle_of_Champion's_Dusk"></button></li>
-				<li><button><img src="img/achievements/Battle_of_Kyhlo.png" alt="Battle_of_Kyhlo" title="Battle_of_Kyhlo"></button></li>
-				<li><button><img src="img/achievements/Bazaar_of_the_Four_Winds.png" alt="Bazaar_of_the_Four_Winds" title="Bazaar_of_the_Four_Winds"></button></li>
-				<li><button><img src="img/achievements/Belcher's_Bluff_(achievements).png" alt="Belcher's_Bluff_(achievements)" title="Belcher's_Bluff_(achievements)"></button></li>
-				<li><button><img src="img/achievements/Bjora_Marches.png" alt="Bjora_Marches" title="Bjora_Marches"></button></li>
-				<li><button><img src="img/achievements/Black_Lion_Collections.png" alt="Black_Lion_Collections" title="Black_Lion_Collections"></button></li>
-				<li><button><img src="img/achievements/Blood_and_Madness.png" alt="Blood_and_Madness" title="Blood_and_Madness"></button></li>
-				<li><button><img src="img/achievements/Bosses.png" alt="Bosses" title="Bosses"></button></li>
-				<li><button><img src="img/achievements/Boss_Week.png" alt="Boss_Week" title="Boss_Week"></button></li>
-				<li><button><img src="img/achievements/Bound_by_Blood.png" alt="Bound_by_Blood" title="Bound_by_Blood"></button></li>
-				<li><button><img src="img/achievements/Carry_the_Creator.png" alt="Carry_the_Creator" title="Carry_the_Creator"></button></li>
-				<li><button><img src="img/achievements/Channel_the_Creator.png" alt="Channel_the_Creator" title="Channel_the_Creator"></button></li>
-				<li><button><img src="img/achievements/Clockwork_Chaos.png" alt="Clockwork_Chaos" title="Clockwork_Chaos"></button></li>
-				<li><button><img src="img/achievements/Community.png" alt="Community" title="Community"></button></li>
-				<li><button><img src="img/achievements/Complement_the_Creator.png" alt="Complement_the_Creator" title="Complement_the_Creator"></button></li>
-				<li><button><img src="img/achievements/Conquer_the_Creator.png" alt="Conquer_the_Creator" title="Conquer_the_Creator"></button></li>
-				<li><button><img src="img/achievements/Conservation_of_Magic.png" alt="Conservation_of_Magic" title="Conservation_of_Magic"></button></li>
-				<li><button><img src="img/achievements/Crab_Toss.png" alt="Crab_Toss" title="Crab_Toss"></button></li>
-				<li><button><img src="img/achievements/Crown_Pavilion_(achievements).png" alt="Crown_Pavilion_(achievements)" title="Crown_Pavilion_(achievements)"></button></li>
-				<li><button><img src="img/achievements/Crystal_Desert_Basic_Collections.png" alt="Crystal_Desert_Basic_Collections" title="Crystal_Desert_Basic_Collections"></button></li>
-				<li><button><img src="img/achievements/Crystal_Desert.png" alt="Crystal_Desert" title="Crystal_Desert"></button></li>
-				<li><button><img src="img/achievements/Crystal_Desert_Rare_Collections.png" alt="Crystal_Desert_Rare_Collections" title="Crystal_Desert_Rare_Collections"></button></li>
-				<li><button><img src="img/achievements/Crystal_Desert_Slayer.png" alt="Crystal_Desert_Slayer" title="Crystal_Desert_Slayer"></button></li>
-				<li><button><img src="img/achievements/Crystal_Oasis.png" alt="Crystal_Oasis" title="Crystal_Oasis"></button></li>
-				<li><button><img src="img/achievements/Current_Events.png" alt="Current_Events" title="Current_Events"></button></li>
-				<li><button><img src="img/achievements/Cursed_Flintlock_(achievement).png" alt="Cursed_Flintlock_(achievement)" title="Cursed_Flintlock_(achievement)"></button></li>
-				<li><button><img src="img/achievements/Cutthroat_Politics.png" alt="Cutthroat_Politics" title="Cutthroat_Politics"></button></li>
-				<li><button><img src="img/achievements/Daily_Achievement.png" alt="Daily_Achievement" title="Daily_Achievement"></button></li>
-				<li><button><img src="img/achievements/Daily_Fractals.png" alt="Daily_Fractals" title="Daily_Fractals"></button></li>
-				<li><button><img src="img/achievements/Daily_PvP_Achievement.png" alt="Daily_PvP_Achievement" title="Daily_PvP_Achievement"></button></li>
-				<li><button><img src="img/achievements/Daily_Strike_Mission.png" alt="Daily_Strike_Mission" title="Daily_Strike_Mission"></button></li>
-				<li><button><img src="img/achievements/Daybreak.png" alt="Daybreak" title="Daybreak"></button></li>
-				<li><button><img src="img/achievements/Desert_Highlands.png" alt="Desert_Highlands" title="Desert_Highlands"></button></li>
-				<li><button><img src="img/achievements/Djinn's_Dominion.png" alt="Djinn's_Dominion" title="Djinn's_Dominion"></button></li>
-				<li><button><img src="img/achievements/Domain_of_Vabbi.png" alt="Domain_of_Vabbi" title="Domain_of_Vabbi"></button></li>
-				<li><button><img src="img/achievements/Dragon_Ball.png" alt="Dragon_Ball" title="Dragon_Ball"></button></li>
-				<li><button><img src="img/achievements/Dragon_Bash_(achievements).png" alt="Dragon_Bash_(achievements)" title="Dragon_Bash_(achievements)"></button></li>
-				<li><button><img src="img/achievements/Dragon_Bash_Feats.png" alt="Dragon_Bash_Feats" title="Dragon_Bash_Feats"></button></li>
-				<li><button><img src="img/achievements/Dragon's_Stand.png" alt="Dragon's_Stand" title="Dragon's_Stand"></button></li>
-				<li><button><img src="img/achievements/Drakkar.png" alt="Drakkar" title="Drakkar"></button></li>
-				<li><button><img src="img/achievements/Dry_Top.png" alt="Dry_Top" title="Dry_Top"></button></li>
-				<li><button><img src="img/achievements/Dungeons_(achievements).png" alt="Dungeons_(achievements)" title="Dungeons_(achievements)"></button></li>
-				<li><button><img src="img/achievements/Echoes_of_the_Past.png" alt="Echoes_of_the_Past" title="Echoes_of_the_Past"></button></li>
-				<li><button><img src="img/achievements/Edge_of_the_Mists.png" alt="Edge_of_the_Mists" title="Edge_of_the_Mists"></button></li>
-				<li><button><img src="img/achievements/Elon_Riverlands.png" alt="Elon_Riverlands" title="Elon_Riverlands"></button></li>
-				<li><button><img src="img/achievements/Emissary_Vorpp's_Field_Assistant.png" alt="Emissary_Vorpp's_Field_Assistant" title="Emissary_Vorpp's_Field_Assistant"></button></li>
-				<li><button><img src="img/achievements/Entanglement.png" alt="Entanglement" title="Entanglement"></button></li>
-				<li><button><img src="img/achievements/Escape_from_Lion's_Arch.png" alt="Escape_from_Lion's_Arch" title="Escape_from_Lion's_Arch"></button></li>
-				<li><button><img src="img/achievements/Eternal_Coliseum.png" alt="Eternal_Coliseum" title="Eternal_Coliseum"></button></li>
-				<li><button><img src="img/achievements/Explorer.png" alt="Explorer" title="Explorer"></button></li>
-				<li><button><img src="img/achievements/Expurgation_(achievement).png" alt="Expurgation_(achievement)" title="Expurgation_(achievement)"></button></li>
-				<li><button><img src="img/achievements/Fang_of_Mokèlé_(achievement).png" alt="Fang_of_Mokèlé_(achievement)" title="Fang_of_Mokèlé_(achievement)"></button></li>
-				<li><button><img src="img/achievements/Fashion.png" alt="Fashion" title="Fashion"></button></li>
-				<li><button><img src="img/achievements/Festival_Collections.png" alt="Festival_Collections" title="Festival_Collections"></button></li>
-				<li><button><img src="img/achievements/Festival_of_the_Four_Winds_(achievements).png" alt="Festival_of_the_Four_Winds_(achievements)" title="Festival_of_the_Four_Winds_(achievements)"></button></li>
-				<li><button><img src="img/achievements/Festival_of_the_Four_Winds.png" alt="Festival_of_the_Four_Winds" title="Festival_of_the_Four_Winds"></button></li>
-				<li><button><img src="img/achievements/Flame_and_Frost.png" alt="Flame_and_Frost" title="Flame_and_Frost"></button></li>
-				<li><button><img src="img/achievements/Flashpoint.png" alt="Flashpoint" title="Flashpoint"></button></li>
-				<li><button><img src="img/achievements/Forest_of_Niflhel.png" alt="Forest_of_Niflhel" title="Forest_of_Niflhel"></button></li>
-				<li><button><img src="img/achievements/Four_Winds_Customs.png" alt="Four_Winds_Customs" title="Four_Winds_Customs"></button></li>
-				<li><button><img src="img/achievements/Fractals_of_the_Mists_(achievements).png" alt="Fractals_of_the_Mists_(achievements)" title="Fractals_of_the_Mists_(achievements)"></button></li>
-				<li><button><img src="img/achievements/Gates_of_Maguuma.png" alt="Gates_of_Maguuma" title="Gates_of_Maguuma"></button></li>
-				<li><button><img src="img/achievements/Guerrilla_Arc_(achievement).png" alt="Guerrilla_Arc_(achievement)" title="Guerrilla_Arc_(achievement)"></button></li>
-				<li><button><img src="img/achievements/Guide_for_the_Lost_(achievement).png" alt="Guide_for_the_Lost_(achievement)" title="Guide_for_the_Lost_(achievement)"></button></li>
-				<li><button><img src="img/achievements/Hall_of_Monuments_(achievement).png" alt="Hall_of_Monuments_(achievement)" title="Hall_of_Monuments_(achievement)"></button></li>
-				<li><button><img src="img/achievements/Heart_of_Thorns_Act_1.png" alt="Heart_of_Thorns_Act_1" title="Heart_of_Thorns_Act_1"></button></li>
-				<li><button><img src="img/achievements/Heart_of_Thorns_Act_2.png" alt="Heart_of_Thorns_Act_2" title="Heart_of_Thorns_Act_2"></button></li>
-				<li><button><img src="img/achievements/Heart_of_Thorns_Act_3.png" alt="Heart_of_Thorns_Act_3" title="Heart_of_Thorns_Act_3"></button></li>
-				<li><button><img src="img/achievements/Heart_of_Thorns_Act_4.png" alt="Heart_of_Thorns_Act_4" title="Heart_of_Thorns_Act_4"></button></li>
-				<li><button><img src="img/achievements/Hero.png" alt="Hero" title="Hero"></button></li>
-				<li><button><img src="img/achievements/Jormag_Rising.png" alt="Jormag_Rising" title="Jormag_Rising"></button></li>
-				<li><button><img src="img/achievements/Jumping_Puzzles.png" alt="Jumping_Puzzles" title="Jumping_Puzzles"></button></li>
-				<li><button><img src="img/achievements/Justice_of_the_Blade.png" alt="Justice_of_the_Blade" title="Justice_of_the_Blade"></button></li>
-				<li><button><img src="img/achievements/Keg_Brawl_(achievements).png" alt="Keg_Brawl_(achievements)" title="Keg_Brawl_(achievements)"></button></li>
-				<li><button><img src="img/achievements/Knight_of_the_Thorn.png" alt="Knight_of_the_Thorn" title="Knight_of_the_Thorn"></button></li>
-				<li><button><img src="img/achievements/Legacy_of_the_Foefire.png" alt="Legacy_of_the_Foefire" title="Legacy_of_the_Foefire"></button></li>
-				<li><button><img src="img/achievements/Legendary_Armor.png" alt="Legendary_Armor" title="Legendary_Armor"></button></li>
-				<li><button><img src="img/achievements/Legendary_Backpacks.png" alt="Legendary_Backpacks" title="Legendary_Backpacks"></button></li>
-				<li><button><img src="img/achievements/Legendary_Trinkets.png" alt="Legendary_Trinkets" title="Legendary_Trinkets"></button></li>
-				<li><button><img src="img/achievements/Legendary_Weapons_(achievements).png" alt="Legendary_Weapons_(achievements)" title="Legendary_Weapons_(achievements)"></button></li>
-				<li><button><img src="img/achievements/Living_Story.png" alt="Living_Story" title="Living_Story"></button></li>
-				<li><button><img src="img/achievements/Long_Live_the_Lich.png" alt="Long_Live_the_Lich" title="Long_Live_the_Lich"></button></li>
-				<li><button><img src="img/achievements/Lunar_New_Year_Dailies.png" alt="Lunar_New_Year_Dailies" title="Lunar_New_Year_Dailies"></button></li>
-				<li><button><img src="img/achievements/Lunatic_Wardrobe.png" alt="Lunatic_Wardrobe" title="Lunatic_Wardrobe"></button></li>
-				<li><button><img src="img/achievements/Mastery_Insights.png" alt="Mastery_Insights" title="Mastery_Insights"></button></li>
-				<li><button><img src="img/achievements/Monthly_Achievement.png" alt="Monthly_Achievement" title="Monthly_Achievement"></button></li>
-				<li><button><img src="img/achievements/Monthly_PvP_Achievement.png" alt="Monthly_PvP_Achievement" title="Monthly_PvP_Achievement"></button></li>
-				<li><button><img src="img/achievements/New_Year's_Customs.png" alt="New_Year's_Customs" title="New_Year's_Customs"></button></li>
-				<li><button><img src="img/achievements/No_Quarter.png" alt="No_Quarter" title="No_Quarter"></button></li>
-				<li><button><img src="img/achievements/One_Path_Ends.png" alt="One_Path_Ends" title="One_Path_Ends"></button></li>
-				<li><button><img src="img/achievements/Out_of_the_Shadows.png" alt="Out_of_the_Shadows" title="Out_of_the_Shadows"></button></li>
-				<li><button><img src="img/achievements/Path_of_Fire_Act_1.png" alt="Path_of_Fire_Act_1" title="Path_of_Fire_Act_1"></button></li>
-				<li><button><img src="img/achievements/Path_of_Fire_Act_2.png" alt="Path_of_Fire_Act_2" title="Path_of_Fire_Act_2"></button></li>
-				<li><button><img src="img/achievements/Path_of_Fire_Act_3.png" alt="Path_of_Fire_Act_3" title="Path_of_Fire_Act_3"></button></li>
-				<li><button><img src="img/achievements/Point_of_No_Return.png" alt="Point_of_No_Return" title="Point_of_No_Return"></button></li>
-				<li><button><img src="img/achievements/PvP_Conqueror.png" alt="PvP_Conqueror" title="PvP_Conqueror"></button></li>
-				<li><button><img src="img/achievements/Queen_Jennah's_Jubilee.png" alt="Queen_Jennah's_Jubilee" title="Queen_Jennah's_Jubilee"></button></li>
-				<li><button><img src="img/achievements/Queen's_Gauntlet_(achievements).png" alt="Queen's_Gauntlet_(achievements)" title="Queen's_Gauntlet_(achievements)"></button></li>
-				<li><button><img src="img/achievements/Rare_Collections.png" alt="Rare_Collections" title="Rare_Collections"></button></li>
-				<li><button><img src="img/achievements/Retired_Achievements.png" alt="Rare_Collections" title="Rare_Collections"></button></li>
-				<li><button><img src="img/achievements/Revenge_of_the_Capricorn.png" alt="Revenge_of_the_Capricorn" title="Revenge_of_the_Capricorn"></button></li>
-				<li><button><img src="img/achievements/Rising_Flames.png" alt="Rising_Flames" title="Rising_Flames"></button></li>
-				<li><button><img src="img/achievements/Roller_Beetle_Racing.png" alt="Roller_Beetle_Racing" title="Roller_Beetle_Racing"></button></li>
-				<li><button><img src="img/achievements/Sanctum_Sprint.png" alt="Sanctum_Sprint" title="Sanctum_Sprint"></button></li>
-				<li><button><img src="img/achievements/Secret_of_Southsun.png" alt="Secret_of_Southsun" title="Secret_of_Southsun"></button></li>
-				<li><button><img src="img/achievements/Seeds_of_Truth.png" alt="Seeds_of_Truth" title="Seeds_of_Truth"></button></li>
-				<li><button><img src="img/achievements/Shadow_in_the_Ice.png" alt="Shadow_in_the_Ice" title="Shadow_in_the_Ice"></button></li>
-				<li><button><img src="img/achievements/Shadow_of_the_Mad_King_(2017_achievements).png" alt="Shadow_of_the_Mad_King_(2017_achievements)" title="Shadow_of_the_Mad_King_(2017_achievements)"></button></li>
-				<li><button><img src="img/achievements/Shadow_of_the_Mad_King.png" alt="Shadow_of_the_Mad_King" title="Shadow_of_the_Mad_King"></button></li>
-				<li><button><img src="img/achievements/Silence_of_a_Thousand_Years_(achievement).png" alt="Silence_of_a_Thousand_Years_(achievement)" title="Silence_of_a_Thousand_Years_(achievement)"></button></li>
-				<li><button><img src="img/achievements/Skyhammer.png" alt="Skyhammer" title="Skyhammer"></button></li>
-				<li><button><img src="img/achievements/Sky_Pirates.png" alt="Sky_Pirates" title="Sky_Pirates"></button></li>
-				<li><button><img src="img/achievements/Slayer.png" alt="Slayer" title="Slayer"></button></li>
-				<li><button><img src="img/achievements/Southsun_Survival.png" alt="Southsun_Survival" title="Southsun_Survival"></button></li>
-				<li><button><img src="img/achievements/Special_Event.png" alt="Special_Event" title="Special_Event"></button></li>
-				<li><button><img src="img/achievements/Specialization_Collections.png" alt="Specialization_Collections" title="Specialization_Collections"></button></li>
-				<li><button><img src="img/achievements/Specializations_(achievements).png" alt="Specializations_(achievements)" title="Specializations_(achievements)"></button></li>
-				<li><button><img src="img/achievements/Spirit_Vale_(achievements).png" alt="Spirit_Vale_(achievements)" title="Spirit_Vale_(achievements)"></button></li>
-				<li><button><img src="img/achievements/Spirit_Watch.png" alt="Spirit_Watch" title="Spirit_Watch"></button></li>
-				<li><button><img src="img/achievements/Sunken_Treasure_Hunter.png" alt="Sunken_Treasure_Hunter" title="Sunken_Treasure_Hunter"></button></li>
-				<li><button><img src="img/achievements/Super_Adventure_Box.png" alt="Super_Adventure_Box" title="Super_Adventure_Box"></button></li>
-				<li><button><img src="img/achievements/Super_Adventure_Box-_Tribulation_Mode.png" alt="Super_Adventure_Box-_Tribulation_Mode" title="Super_Adventure_Box-_Tribulation_Mode"></button></li>
-				<li><button><img src="img/achievements/Super_Adventure_Box-_World_1.png" alt="Super_Adventure_Box-_World_1" title="Super_Adventure_Box-_World_1"></button></li>
-				<li><button><img src="img/achievements/Super_Adventure_Box-_World_2.png" alt="Super_Adventure_Box-_World_2" title="Super_Adventure_Box-_World_2"></button></li>
-				<li><button><img src="img/achievements/Support_Ellen_Kiel.png" alt="Support_Ellen_Kiel" title="Support_Ellen_Kiel"></button></li>
-				<li><button><img src="img/achievements/Support_Evon_Gnashblade.png" alt="Support_Evon_Gnashblade" title="Support_Evon_Gnashblade"></button></li>
-				<li><button><img src="img/achievements/Tangled_Depths.png" alt="Tangled_Depths" title="Tangled_Depths"></button></li>
-				<li><button><img src="img/achievements/Tangled_Paths.png" alt="Tangled_Paths" title="Tangled_Paths"></button></li>
-				<li><button><img src="img/achievements/Temple_of_the_Silent_Storm.png" alt="Temple_of_the_Silent_Storm" title="Temple_of_the_Silent_Storm"></button></li>
-				<li><button><img src="img/achievements/Tequatl.png" alt="Tequatl" title="Tequatl"></button></li>
-				<li><button><img src="img/achievements/The_Battle_for_Lion's_Arch.png" alt="The_Battle_for_Lion's_Arch" title="The_Battle_for_Lion's_Arch"></button></li>
-				<li><button><img src="img/achievements/The_Cutting_Edge_(achievement).png" alt="The_Cutting_Edge_(achievement)" title="The_Cutting_Edge_(achievement)"></button></li>
-				<li><button><img src="img/achievements/The_Desolation.png" alt="The_Desolation" title="The_Desolation"></button></li>
-				<li><button><img src="img/achievements/The_Dragon's_Reach,_Part_1.png" alt="The_Dragon's_Reach,_Part_1" title="The_Dragon's_Reach,_Part_1"></button></li>
-				<li><button><img src="img/achievements/The_Dragon's_Reach,_Part_2.png" alt="The_Dragon's_Reach,_Part_2" title="The_Dragon's_Reach,_Part_2"></button></li>
-				<li><button><img src="img/achievements/The_Head_of_the_Snake.png" alt="The_Head_of_the_Snake" title="The_Head_of_the_Snake"></button></li>
-				<li><button><img src="img/achievements/The_Nightmare_Is_Over.png" alt="The_Nightmare_Is_Over" title="The_Nightmare_Is_Over"></button></li>
-				<li><button><img src="img/achievements/The_Nightmares_Within.png" alt="The_Nightmares_Within" title="The_Nightmares_Within"></button></li>
-				<li><button><img src="img/achievements/The_Origins_of_Madness.png" alt="The_Origins_of_Madness" title="The_Origins_of_Madness"></button></li>
-				<li><button><img src="img/achievements/The_Queen's_Gauntlet.png" alt="The_Queen's_Gauntlet" title="The_Queen's_Gauntlet"></button></li>
-				<li><button><img src="img/achievements/The_Shatterer.png" alt="The_Shatterer" title="The_Shatterer"></button></li>
-				<li><button><img src="img/achievements/The_Silverwastes.png" alt="The_Silverwastes" title="The_Silverwastes"></button></li>
-				<li><button><img src="img/achievements/The_Wondrous_Workshop_of_Toymaker_Tixx_(2017).png" alt="The_Wondrous_Workshop_of_Toymaker_Tixx_(2017)" title="The_Wondrous_Workshop_of_Toymaker_Tixx_(2017)"></button></li>
-				<li><button><img src="img/achievements/Tower_of_Nightmares.png" alt="Tower_of_Nightmares" title="Tower_of_Nightmares"></button></li>
-				<li><button><img src="img/achievements/Tradesman.png" alt="Tradesman" title="Tradesman"></button></li>
-				<li><button><img src="img/achievements/Transfer_Chaser.png" alt="Transfer_Chaser" title="Transfer_Chaser"></button></li>
-				<li><button><img src="img/achievements/Triple_Trouble.png" alt="Triple_Trouble" title="Triple_Trouble"></button></li>
-				<li><button><img src="img/achievements/Tutorial.png" alt="Tutorial" title="Tutorial"></button></li>
-				<li><button><img src="img/achievements/Twilight_Arbor_Aetherpath.png" alt="Twilight_Arbor_Aetherpath" title="Twilight_Arbor_Aetherpath"></button></li>
-				<li><button><img src="img/achievements/Twilight_Assault.png" alt="Twilight_Assault" title="Twilight_Assault"></button></li>
-				<li><button><img src="img/achievements/Veilrender_(achievement).png" alt="Veilrender_(achievement)" title="Veilrender_(achievement)"></button></li>
-				<li><button><img src="img/achievements/Verdant_Brink.png" alt="Verdant_Brink" title="Verdant_Brink"></button></li>
-				<li><button><img src="img/achievements/Visions_of_the_Past-_Steel_and_Fire.png" alt="Visions_of_the_Past-_Steel_and_Fire" title="Visions_of_the_Past-_Steel_and_Fire"></button></li>
-				<li><button><img src="img/achievements/War_Eternal.png" alt="War_Eternal" title="War_Eternal"></button></li>
-				<li><button><img src="img/achievements/Warpblade_(achievement).png" alt="Warpblade_(achievement)" title="Warpblade_(achievement)"></button></li>
-				<li><button><img src="img/achievements/Weapon_Master.png" alt="Weapon_Master" title="Weapon_Master"></button></li>
-				<li><button><img src="img/achievements/Wintersday_achievement.png" alt="Wintersday_achievement" title="Wintersday_achievement"></button></li>
-				<li><button><img src="img/achievements/Winter's_Presence_(achievements).png" alt="Winter's_Presence_(achievements)" title="Winter's_Presence_(achievements)"></button></li>
-				<li><button><img src="img/achievements/World_vs_World.png" alt="World_vs_World" title="World_vs_World"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/A_Bug_in_the_System.png" alt="A_Bug_in_the_System" title="A_Bug_in_the_System"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/A_Crack_in_the_Ice.png" alt="A_Crack_in_the_Ice" title="A_Crack_in_the_Ice"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Activities.png" alt="Activities" title="Activities"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/All_or_Nothing.png" alt="All_or_Nothing" title="All_or_Nothing"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Anomalous_Occurrences.png" alt="Anomalous_Occurrences" title="Anomalous_Occurrences"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/A_Star_to_Guide_Us.png" alt="A_Star_to_Guide_Us" title="A_Star_to_Guide_Us"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Auric_Basin.png" alt="Auric_Basin" title="Auric_Basin"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Bar_Brawl_(achievements).png" alt="Bar_Brawl_(achievements)" title="Bar_Brawl_(achievements)"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Basic_Collections.png" alt="Basic_Collections" title="Basic_Collections"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Battle_of_Champion's_Dusk.png" alt="Battle_of_Champion's_Dusk" title="Battle_of_Champion's_Dusk"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Battle_of_Kyhlo.png" alt="Battle_of_Kyhlo" title="Battle_of_Kyhlo"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Bazaar_of_the_Four_Winds.png" alt="Bazaar_of_the_Four_Winds" title="Bazaar_of_the_Four_Winds"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Belcher's_Bluff_(achievements).png" alt="Belcher's_Bluff_(achievements)" title="Belcher's_Bluff_(achievements)"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Bjora_Marches.png" alt="Bjora_Marches" title="Bjora_Marches"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Black_Lion_Collections.png" alt="Black_Lion_Collections" title="Black_Lion_Collections"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Blood_and_Madness.png" alt="Blood_and_Madness" title="Blood_and_Madness"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Bosses.png" alt="Bosses" title="Bosses"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Boss_Week.png" alt="Boss_Week" title="Boss_Week"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Bound_by_Blood.png" alt="Bound_by_Blood" title="Bound_by_Blood"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Carry_the_Creator.png" alt="Carry_the_Creator" title="Carry_the_Creator"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Channel_the_Creator.png" alt="Channel_the_Creator" title="Channel_the_Creator"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Clockwork_Chaos.png" alt="Clockwork_Chaos" title="Clockwork_Chaos"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Community.png" alt="Community" title="Community"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Complement_the_Creator.png" alt="Complement_the_Creator" title="Complement_the_Creator"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Conquer_the_Creator.png" alt="Conquer_the_Creator" title="Conquer_the_Creator"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Conservation_of_Magic.png" alt="Conservation_of_Magic" title="Conservation_of_Magic"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Crab_Toss.png" alt="Crab_Toss" title="Crab_Toss"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Crown_Pavilion_(achievements).png" alt="Crown_Pavilion_(achievements)" title="Crown_Pavilion_(achievements)"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Crystal_Desert_Basic_Collections.png" alt="Crystal_Desert_Basic_Collections" title="Crystal_Desert_Basic_Collections"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Crystal_Desert.png" alt="Crystal_Desert" title="Crystal_Desert"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Crystal_Desert_Rare_Collections.png" alt="Crystal_Desert_Rare_Collections" title="Crystal_Desert_Rare_Collections"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Crystal_Desert_Slayer.png" alt="Crystal_Desert_Slayer" title="Crystal_Desert_Slayer"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Crystal_Oasis.png" alt="Crystal_Oasis" title="Crystal_Oasis"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Current_Events.png" alt="Current_Events" title="Current_Events"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Cursed_Flintlock_(achievement).png" alt="Cursed_Flintlock_(achievement)" title="Cursed_Flintlock_(achievement)"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Cutthroat_Politics.png" alt="Cutthroat_Politics" title="Cutthroat_Politics"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Daily_Achievement.png" alt="Daily_Achievement" title="Daily_Achievement"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Daily_Fractals.png" alt="Daily_Fractals" title="Daily_Fractals"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Daily_PvP_Achievement.png" alt="Daily_PvP_Achievement" title="Daily_PvP_Achievement"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Daily_Strike_Mission.png" alt="Daily_Strike_Mission" title="Daily_Strike_Mission"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Daybreak.png" alt="Daybreak" title="Daybreak"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Desert_Highlands.png" alt="Desert_Highlands" title="Desert_Highlands"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Djinn's_Dominion.png" alt="Djinn's_Dominion" title="Djinn's_Dominion"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Domain_of_Vabbi.png" alt="Domain_of_Vabbi" title="Domain_of_Vabbi"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Dragon_Ball.png" alt="Dragon_Ball" title="Dragon_Ball"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Dragon_Bash_(achievements).png" alt="Dragon_Bash_(achievements)" title="Dragon_Bash_(achievements)"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Dragon_Bash_Feats.png" alt="Dragon_Bash_Feats" title="Dragon_Bash_Feats"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Dragon's_Stand.png" alt="Dragon's_Stand" title="Dragon's_Stand"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Drakkar.png" alt="Drakkar" title="Drakkar"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Dry_Top.png" alt="Dry_Top" title="Dry_Top"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Dungeons_(achievements).png" alt="Dungeons_(achievements)" title="Dungeons_(achievements)"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Echoes_of_the_Past.png" alt="Echoes_of_the_Past" title="Echoes_of_the_Past"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Edge_of_the_Mists.png" alt="Edge_of_the_Mists" title="Edge_of_the_Mists"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Elon_Riverlands.png" alt="Elon_Riverlands" title="Elon_Riverlands"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Emissary_Vorpp's_Field_Assistant.png" alt="Emissary_Vorpp's_Field_Assistant" title="Emissary_Vorpp's_Field_Assistant"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Entanglement.png" alt="Entanglement" title="Entanglement"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Escape_from_Lion's_Arch.png" alt="Escape_from_Lion's_Arch" title="Escape_from_Lion's_Arch"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Eternal_Coliseum.png" alt="Eternal_Coliseum" title="Eternal_Coliseum"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Explorer.png" alt="Explorer" title="Explorer"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Expurgation_(achievement).png" alt="Expurgation_(achievement)" title="Expurgation_(achievement)"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Fang_of_Mokèlé_(achievement).png" alt="Fang_of_Mokèlé_(achievement)" title="Fang_of_Mokèlé_(achievement)"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Fashion.png" alt="Fashion" title="Fashion"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Festival_Collections.png" alt="Festival_Collections" title="Festival_Collections"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Festival_of_the_Four_Winds_(achievements).png" alt="Festival_of_the_Four_Winds_(achievements)" title="Festival_of_the_Four_Winds_(achievements)"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Festival_of_the_Four_Winds.png" alt="Festival_of_the_Four_Winds" title="Festival_of_the_Four_Winds"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Flame_and_Frost.png" alt="Flame_and_Frost" title="Flame_and_Frost"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Flashpoint.png" alt="Flashpoint" title="Flashpoint"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Forest_of_Niflhel.png" alt="Forest_of_Niflhel" title="Forest_of_Niflhel"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Four_Winds_Customs.png" alt="Four_Winds_Customs" title="Four_Winds_Customs"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Fractals_of_the_Mists_(achievements).png" alt="Fractals_of_the_Mists_(achievements)" title="Fractals_of_the_Mists_(achievements)"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Gates_of_Maguuma.png" alt="Gates_of_Maguuma" title="Gates_of_Maguuma"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Guerrilla_Arc_(achievement).png" alt="Guerrilla_Arc_(achievement)" title="Guerrilla_Arc_(achievement)"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Guide_for_the_Lost_(achievement).png" alt="Guide_for_the_Lost_(achievement)" title="Guide_for_the_Lost_(achievement)"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Hall_of_Monuments_(achievement).png" alt="Hall_of_Monuments_(achievement)" title="Hall_of_Monuments_(achievement)"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Heart_of_Thorns_Act_1.png" alt="Heart_of_Thorns_Act_1" title="Heart_of_Thorns_Act_1"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Heart_of_Thorns_Act_2.png" alt="Heart_of_Thorns_Act_2" title="Heart_of_Thorns_Act_2"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Heart_of_Thorns_Act_3.png" alt="Heart_of_Thorns_Act_3" title="Heart_of_Thorns_Act_3"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Heart_of_Thorns_Act_4.png" alt="Heart_of_Thorns_Act_4" title="Heart_of_Thorns_Act_4"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Hero.png" alt="Hero" title="Hero"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Jormag_Rising.png" alt="Jormag_Rising" title="Jormag_Rising"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Jumping_Puzzles.png" alt="Jumping_Puzzles" title="Jumping_Puzzles"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Justice_of_the_Blade.png" alt="Justice_of_the_Blade" title="Justice_of_the_Blade"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Keg_Brawl_(achievements).png" alt="Keg_Brawl_(achievements)" title="Keg_Brawl_(achievements)"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Knight_of_the_Thorn.png" alt="Knight_of_the_Thorn" title="Knight_of_the_Thorn"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Legacy_of_the_Foefire.png" alt="Legacy_of_the_Foefire" title="Legacy_of_the_Foefire"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Legendary_Armor.png" alt="Legendary_Armor" title="Legendary_Armor"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Legendary_Backpacks.png" alt="Legendary_Backpacks" title="Legendary_Backpacks"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Legendary_Trinkets.png" alt="Legendary_Trinkets" title="Legendary_Trinkets"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Legendary_Weapons_(achievements).png" alt="Legendary_Weapons_(achievements)" title="Legendary_Weapons_(achievements)"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Living_Story.png" alt="Living_Story" title="Living_Story"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Long_Live_the_Lich.png" alt="Long_Live_the_Lich" title="Long_Live_the_Lich"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Lunar_New_Year_Dailies.png" alt="Lunar_New_Year_Dailies" title="Lunar_New_Year_Dailies"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Lunatic_Wardrobe.png" alt="Lunatic_Wardrobe" title="Lunatic_Wardrobe"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Mastery_Insights.png" alt="Mastery_Insights" title="Mastery_Insights"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Monthly_Achievement.png" alt="Monthly_Achievement" title="Monthly_Achievement"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Monthly_PvP_Achievement.png" alt="Monthly_PvP_Achievement" title="Monthly_PvP_Achievement"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/New_Year's_Customs.png" alt="New_Year's_Customs" title="New_Year's_Customs"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/No_Quarter.png" alt="No_Quarter" title="No_Quarter"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/One_Path_Ends.png" alt="One_Path_Ends" title="One_Path_Ends"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Out_of_the_Shadows.png" alt="Out_of_the_Shadows" title="Out_of_the_Shadows"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Path_of_Fire_Act_1.png" alt="Path_of_Fire_Act_1" title="Path_of_Fire_Act_1"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Path_of_Fire_Act_2.png" alt="Path_of_Fire_Act_2" title="Path_of_Fire_Act_2"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Path_of_Fire_Act_3.png" alt="Path_of_Fire_Act_3" title="Path_of_Fire_Act_3"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Point_of_No_Return.png" alt="Point_of_No_Return" title="Point_of_No_Return"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/PvP_Conqueror.png" alt="PvP_Conqueror" title="PvP_Conqueror"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Queen_Jennah's_Jubilee.png" alt="Queen_Jennah's_Jubilee" title="Queen_Jennah's_Jubilee"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Queen's_Gauntlet_(achievements).png" alt="Queen's_Gauntlet_(achievements)" title="Queen's_Gauntlet_(achievements)"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Rare_Collections.png" alt="Rare_Collections" title="Rare_Collections"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Retired_Achievements.png" alt="Rare_Collections" title="Rare_Collections"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Revenge_of_the_Capricorn.png" alt="Revenge_of_the_Capricorn" title="Revenge_of_the_Capricorn"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Rising_Flames.png" alt="Rising_Flames" title="Rising_Flames"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Roller_Beetle_Racing.png" alt="Roller_Beetle_Racing" title="Roller_Beetle_Racing"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Sanctum_Sprint.png" alt="Sanctum_Sprint" title="Sanctum_Sprint"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Secret_of_Southsun.png" alt="Secret_of_Southsun" title="Secret_of_Southsun"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Seeds_of_Truth.png" alt="Seeds_of_Truth" title="Seeds_of_Truth"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Shadow_in_the_Ice.png" alt="Shadow_in_the_Ice" title="Shadow_in_the_Ice"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Shadow_of_the_Mad_King_(2017_achievements).png" alt="Shadow_of_the_Mad_King_(2017_achievements)" title="Shadow_of_the_Mad_King_(2017_achievements)"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Shadow_of_the_Mad_King.png" alt="Shadow_of_the_Mad_King" title="Shadow_of_the_Mad_King"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Silence_of_a_Thousand_Years_(achievement).png" alt="Silence_of_a_Thousand_Years_(achievement)" title="Silence_of_a_Thousand_Years_(achievement)"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Skyhammer.png" alt="Skyhammer" title="Skyhammer"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Sky_Pirates.png" alt="Sky_Pirates" title="Sky_Pirates"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Slayer.png" alt="Slayer" title="Slayer"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Southsun_Survival.png" alt="Southsun_Survival" title="Southsun_Survival"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Special_Event.png" alt="Special_Event" title="Special_Event"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Specialization_Collections.png" alt="Specialization_Collections" title="Specialization_Collections"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Specializations_(achievements).png" alt="Specializations_(achievements)" title="Specializations_(achievements)"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Spirit_Vale_(achievements).png" alt="Spirit_Vale_(achievements)" title="Spirit_Vale_(achievements)"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Spirit_Watch.png" alt="Spirit_Watch" title="Spirit_Watch"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Sunken_Treasure_Hunter.png" alt="Sunken_Treasure_Hunter" title="Sunken_Treasure_Hunter"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Super_Adventure_Box.png" alt="Super_Adventure_Box" title="Super_Adventure_Box"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Super_Adventure_Box-_Tribulation_Mode.png" alt="Super_Adventure_Box-_Tribulation_Mode" title="Super_Adventure_Box-_Tribulation_Mode"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Super_Adventure_Box-_World_1.png" alt="Super_Adventure_Box-_World_1" title="Super_Adventure_Box-_World_1"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Super_Adventure_Box-_World_2.png" alt="Super_Adventure_Box-_World_2" title="Super_Adventure_Box-_World_2"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Support_Ellen_Kiel.png" alt="Support_Ellen_Kiel" title="Support_Ellen_Kiel"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Support_Evon_Gnashblade.png" alt="Support_Evon_Gnashblade" title="Support_Evon_Gnashblade"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Tangled_Depths.png" alt="Tangled_Depths" title="Tangled_Depths"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Tangled_Paths.png" alt="Tangled_Paths" title="Tangled_Paths"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Temple_of_the_Silent_Storm.png" alt="Temple_of_the_Silent_Storm" title="Temple_of_the_Silent_Storm"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Tequatl.png" alt="Tequatl" title="Tequatl"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/The_Battle_for_Lion's_Arch.png" alt="The_Battle_for_Lion's_Arch" title="The_Battle_for_Lion's_Arch"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/The_Cutting_Edge_(achievement).png" alt="The_Cutting_Edge_(achievement)" title="The_Cutting_Edge_(achievement)"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/The_Desolation.png" alt="The_Desolation" title="The_Desolation"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/The_Dragon's_Reach,_Part_1.png" alt="The_Dragon's_Reach,_Part_1" title="The_Dragon's_Reach,_Part_1"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/The_Dragon's_Reach,_Part_2.png" alt="The_Dragon's_Reach,_Part_2" title="The_Dragon's_Reach,_Part_2"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/The_Head_of_the_Snake.png" alt="The_Head_of_the_Snake" title="The_Head_of_the_Snake"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/The_Nightmare_Is_Over.png" alt="The_Nightmare_Is_Over" title="The_Nightmare_Is_Over"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/The_Nightmares_Within.png" alt="The_Nightmares_Within" title="The_Nightmares_Within"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/The_Origins_of_Madness.png" alt="The_Origins_of_Madness" title="The_Origins_of_Madness"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/The_Queen's_Gauntlet.png" alt="The_Queen's_Gauntlet" title="The_Queen's_Gauntlet"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/The_Shatterer.png" alt="The_Shatterer" title="The_Shatterer"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/The_Silverwastes.png" alt="The_Silverwastes" title="The_Silverwastes"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/The_Wondrous_Workshop_of_Toymaker_Tixx_(2017).png" alt="The_Wondrous_Workshop_of_Toymaker_Tixx_(2017)" title="The_Wondrous_Workshop_of_Toymaker_Tixx_(2017)"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Tower_of_Nightmares.png" alt="Tower_of_Nightmares" title="Tower_of_Nightmares"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Tradesman.png" alt="Tradesman" title="Tradesman"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Transfer_Chaser.png" alt="Transfer_Chaser" title="Transfer_Chaser"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Triple_Trouble.png" alt="Triple_Trouble" title="Triple_Trouble"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Tutorial.png" alt="Tutorial" title="Tutorial"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Twilight_Arbor_Aetherpath.png" alt="Twilight_Arbor_Aetherpath" title="Twilight_Arbor_Aetherpath"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Twilight_Assault.png" alt="Twilight_Assault" title="Twilight_Assault"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Veilrender_(achievement).png" alt="Veilrender_(achievement)" title="Veilrender_(achievement)"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Verdant_Brink.png" alt="Verdant_Brink" title="Verdant_Brink"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Visions_of_the_Past-_Steel_and_Fire.png" alt="Visions_of_the_Past-_Steel_and_Fire" title="Visions_of_the_Past-_Steel_and_Fire"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/War_Eternal.png" alt="War_Eternal" title="War_Eternal"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Warpblade_(achievement).png" alt="Warpblade_(achievement)" title="Warpblade_(achievement)"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Weapon_Master.png" alt="Weapon_Master" title="Weapon_Master"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Wintersday_achievement.png" alt="Wintersday_achievement" title="Wintersday_achievement"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/Winter's_Presence_(achievements).png" alt="Winter's_Presence_(achievements)" title="Winter's_Presence_(achievements)"></button></li>
+				<li><button><img width="64" height="64" src="img/achievements/World_vs_World.png" alt="World_vs_World" title="World_vs_World"></button></li>
 			</ul>
 		</details>
 		<details open>
@@ -591,7 +594,7 @@
 			<hr/>
 			<p data-t="footer.html2canvas"><a href="https://html2canvas.hertzen.com/" rel="noreferrer">html2canvas</a> is used to generate achievement images.</p>
 			<hr/>
-			<p data-t="footer.copyright_arenanet">ArenaNet copyright notice: © 2015 ArenaNet, LLC. All rights reserved. NCSOFT, the interlocking NC logo, ArenaNet, Guild Wars, Guild Wars Factions, Guild Wars Nightfall, Guild Wars: Eye of the North, Guild Wars 2, and all associated logos and designs are trademarks or registered trademarks of NCSOFT Corporation. All other trademarks are the property of their respective owners.</p>
+			<p>ArenaNet copyright notice: © 2015 ArenaNet, LLC. All rights reserved. NCSOFT, the interlocking NC logo, ArenaNet, Guild Wars, Guild Wars Factions, Guild Wars Nightfall, Guild Wars: Eye of the North, Guild Wars 2, and all associated logos and designs are trademarks or registered trademarks of NCSOFT Corporation. All other trademarks are the property of their respective owners.</p>
 			<p data-t="footer.not_affiliated">This website is in no way affiliated with ArenaNet, LLC. - NCSOFT or any of its affiliates or subsidiaries.</p>
 			<hr/>
 			<p><a href="https://github.com/gw2ocs/gw2achievements">Github</a></p>
