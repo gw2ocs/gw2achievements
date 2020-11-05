@@ -1,0 +1,27 @@
+{
+  "name": "gw2achievements",
+  "version": "1.0.0",
+  "description": "Generate GuildWars2 achievements",
+  "main": "api.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gw2ocs/gw2achievements.git"
+  },
+  "keywords": [
+    "gw2",
+    "achievements",
+    "canvas"
+  ],
+  "author": "Pandraghon <pandraghon@outlook.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gw2ocs/gw2achievements/issues"
+  },
+  "homepage": "https://github.com/gw2ocs/gw2achievements#readme",
+  "dependencies": {
+    "canvas": "^2.6.1"
+  }
+}
