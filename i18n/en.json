@@ -1,19 +1,25 @@
 {
     "options": {
         "thumbnail": "Thumbnail",
-        "theme": "Theme"
+        "theme": "Theme",
+        "configuration": "Configuration",
+        "name": "Name",
+        "format": "Format",
+        "state": "State",
+        "completed": "Completed",
+        "in_progress": "In progress",
+        "progress": "Progress",
+        "ap": "AP",
+        "generate": "Generate"
     },
     "main": {
-        "save_as": "Save as:"
+        "save": "Save",
+        "image_file": "Image file:",
+        "image_link": "Image link:"
     },
     "footer": {
         "title": "Info",
         "author": "Made by Pandraghon",
-        "html2canvas": "<a href=\"https://html2canvas.hertzen.com/\" rel=\"noreferrer\">html2canvas</a> is used to generate achievement images.",
         "not_affiliated": "This website is in no way affiliated with ArenaNet, LLC. - NCSOFT or any of its affiliates or subsidiaries."
-    },
-    "achievement": {
-        "title": "Achievement's title",
-        "completed": "Completed"
     }
 }

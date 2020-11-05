@@ -1,19 +1,25 @@
 {
     "options": {
         "thumbnail": "Miniature",
-        "theme": "Thème"
+        "theme": "Thème",
+        "configuration": "Configuration",
+        "name": "Nom",
+        "format": "Format",
+        "state": "Etat",
+        "completed": "Terminé",
+        "in_progress": "En cours",
+        "progress": "Progression",
+        "ap": "Points",
+        "generate": "Générer"
     },
     "main": {
-        "save_as": "Enregistrer sous :"
+        "save": "Enregistrer",
+        "image_file": "Fichier de l'image :",
+        "image_link": "Lien de l'image:"
     },
     "footer": {
         "title": "Info",
         "author": "Réalisé par Pandraghon",
-        "html2canvas": "<a href=\"https://html2canvas.hertzen.com/\" rel=\"noreferrer\">html2canvas</a> est utilisé pour générer les images des succès.",
         "not_affiliated": "Ce site internet n'est en aucun cas affilié à ArenaNet, LLC. - NCSOFT ou aucune de ses sociétés affiliées ou filiales."
-    },
-    "achievement": {
-        "title": "Nom du succès",
-        "completed": "Terminé"
     }
 }
