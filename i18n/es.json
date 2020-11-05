@@ -1,19 +1,25 @@
 {
     "options": {
         "thumbnail": "Miniatura",
-        "theme": "Tema"
+        "theme": "Tema",
+        "configuration": "Configuration",
+        "name": "Name",
+        "format": "Format",
+        "state": "State",
+        "completed": "Completed",
+        "in_progress": "In progress",
+        "progress": "Progress",
+        "ap": "AP",
+        "generate": "Generate"
     },
     "main": {
-        "save_as": "Guardar como :"
+        "save": "Guardar :",
+        "image_file": "Image file:",
+        "image_link": "Image link:"
     },
     "footer": {
         "title": "Info",
         "author": "Realizado por Pandraghon.",
-        "html2canvas": "<a href=\"https://html2canvas.hertzen.com/\" rel=\"noreferrer\">html2canvas</a> se utiliza para generar las imágenes de los logros.",
         "not_affiliated": "Este sitio web no está afiliado de ninguna manera a ArenaNet, LLC. - NCSOFT o cualquiera de sus afiliadas o subsidiarias."
-    },
-    "achievement": {
-        "title": "Título del logro",
-        "completed": "Finalizado"
     }
 }

@@ -1,19 +1,25 @@
 {
     "options": {
         "thumbnail": "Bild",
-        "theme": "Thema"
+        "theme": "Thema",
+        "configuration": "Configuration",
+        "name": "Name",
+        "format": "Format",
+        "state": "State",
+        "completed": "Completed",
+        "in_progress": "In progress",
+        "progress": "Progress",
+        "ap": "AP",
+        "generate": "Generate"
     },
     "main": {
-        "save_as": "Speichern als : "
+        "save": "Speichern : ",
+        "image_file": "Image file:",
+        "image_link": "Image link:"
     },
     "footer": {
         "title": "Info",
         "author": "Von Pandraghon gemacht.",
-        "html2canvas": "<a href=\"https://html2canvas.hertzen.com/\" rel=\"noreferrer\">html2canvas</a> wird verwendet, um die Bilder von Erfolgen zu erzeugen.",
         "not_affiliated": "Diese Website ist in keiner Weise mit ArenaNet, LLC verbunden. - NCSOFT oder eines seiner verbundenen Unternehmen oder Tochterunternehmen."
-    },
-    "achievement": {
-        "title": "Erfolgstitel",
-        "completed": "Fertig"
     }
 }
