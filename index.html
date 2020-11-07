@@ -252,6 +252,7 @@
 			const stateInput = document.getElementById('state');
 			const progressInput = document.getElementById('progress');
 			const goalInput = document.getElementById('goal');
+			const tierInput = document.getElementById('tier');
 			const apInput = document.getElementById('ap');
 			const downloadLink = document.querySelector('.js-download');
 			const saveButton = document.querySelector('.js-save');
@@ -267,7 +268,10 @@
 					params.set('p', progressInput.value);
 					params.set('g', goalInput.value);
 					if (apInput.value) {
-						params.set('ap', apInput.value)
+						params.set('ap', apInput.value);
+					}
+					if (tierInput.value) {
+						params.set('tr', tierInput.value);
 					}
 				}
 				const name = encodeURIComponent(nameInput.value);
@@ -426,6 +430,10 @@
 				<div class="input-row half-row">
 					<label for="ap" data-t="options.ap">AP</label>
 					<input type="number" name="ap" id="ap" value="5"/>
+				</div>
+				<div class="input-row half-row">
+					<label for="tier" data-t="options.tier">Tier</label>
+					<input type="number" name="tier" id="tier" value="1" min="1" max="12"/>
 				</div>
 				<div class="action-row full-row">
 					<button type="submit" data-t="options.generate">Generate</button>

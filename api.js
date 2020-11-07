@@ -3,6 +3,7 @@ const { createServer } = require('http');
 const { themes } = require('./js/options.js');
 
 registerFont('font/trebuc.ttf', { family: 'Trebuchet MS' });
+registerFont('font/trebucbd.ttf', { family: 'Trebuchet MS', weight: 'bold' });
 
 const defaultOptions = {
 	state: 'in_progress',  // "in_progress" | "completed"
@@ -18,17 +19,23 @@ const defaultOptions = {
 const parse = (request) => {
 	const { pathname, searchParams } = new URL(request.url, `http://${request.headers.host}`);;
 	const [, title, ext] = decodeURIComponent(pathname).match(/^\/(.+)\.([\w\d]+)$/);
-	return {
-		title, ext,
-		state: searchParams.get('state') || searchParams.get('s') || 'in_progress',  // "in_progress" | "completed"
-		theme: searchParams.get('theme') || searchParams.get('t') || 'general',  // "general" | "wvw" | "pvp" | "legendary_bag" | "legendary_weapon" | "community" | "festival" | "dragons_stand"
-		icon: searchParams.get('icon') || searchParams.get('i') || '2261498',
-		progress: searchParams.get('progress') || searchParams.get('p'),
-		goal: searchParams.get('goal') || searchParams.get('g'),
-		tier: searchParams.get('tier') || searchParams.get('tr'),
-		ap: searchParams.get('ap'),
-		rewards: searchParams.get('rewards') || searchParams.get('r'),
+	const state = searchParams.get('state') || searchParams.get('s') || 'in_progress';  // "in_progress" | "completed"
+	const theme = searchParams.get('theme') || searchParams.get('t') || 'general';  // "general" | "wvw" | "pvp" | "legendary_bag" | "legendary_weapon" | "community" | "festival" | "dragons_stand"
+	const icon = searchParams.get('icon') || searchParams.get('i') || '2261498';
+	const options = {
+		title, ext, state, theme, icon
 	};
+	if (state === 'in_progress') {
+		const rewards = searchParams.get('rewards') || searchParams.get('r');
+		Object.assign(options, {
+			progress: searchParams.get('progress') || searchParams.get('p'),
+			goal: searchParams.get('goal') || searchParams.get('g'),
+			tier: searchParams.get('tier') || searchParams.get('tr'),
+			ap: searchParams.get('ap'),
+			rewards: rewards && rewards.split(','),
+		})
+	}
+	return options;
 }
 
 const images = {};
@@ -60,7 +67,7 @@ const draw = async (options) => {
 	ctx.font = '14px "Trebuchet MS", Helvetica, sans-serif';
 
 	// background
-	ctx.drawImage(images.background, 90, 90, canvas.width, canvas.height, 0, 0, canvas.width, canvas.height);
+	ctx.drawImage(images.background, 292, 287, canvas.width, canvas.height, 0, 0, canvas.width, canvas.height);
 
 	switch (options.state) {
 		case 'completed':
@@ -151,9 +158,13 @@ const draw = async (options) => {
 			ctx.drawImage(images.border, 0, 0, 90, 90);
 			ctx.restore();
 
+			if (options.tier) {
+				ctx.drawImage(images.tier, 10 + 64 * ((options.tier - 1) % 8), options.tier > 8 ? 64 : 0, 44, 22, 31, 0, 28, 14);
+			}
+
 			// count
 			ctx.save();
-			ctx.shadowBlur = 2;
+			ctx.shadowBlur = 1;
 			ctx.shadowColor = 'rgb(0, 0, 0)';
 			ctx.fillStyle = 'White';
 			ctx.textAlign = 'center';
@@ -169,17 +180,55 @@ const draw = async (options) => {
 			ctx.drawImage(await loadImage('img/605011.png'), canvas.width - 32, canvas.height - 32);
 			ctx.drawImage(images.eye, canvas.width - 32, canvas.height - 32);
 
+			let dxReward = 118;
+
 			if (options.ap) {
 				ctx.save();
-				ctx.shadowBlur = 3;
-				ctx.shadowColor = 'rgb(26, 26, 26)';
+				ctx.shadowBlur = 2;
+				ctx.shadowColor = 'rgb(0, 0, 0)';
+				ctx.font = 'normal normal bold 15px "Trebuchet MS", Helvetica, sans-serif';
 				ctx.fillStyle = 'rgb(136, 136, 85)';
 				ctx.fillText(options.ap, 109, 77);
+				dxReward = 109 + ctx.measureText(options.ap).width;
 				ctx.restore();
 
 				ctx.save();
-				ctx.drawImage(images.ap, 121, 56);
+				ctx.drawImage(images.ap, dxReward, 56);
+				dxReward += 43;
 				ctx.restore();
+			}
+
+			if (options.rewards) {
+				if (options.rewards.indexOf('title') != -1) {
+					ctx.save();
+					ctx.drawImage(images.title, dxReward, 56);
+					dxReward += 32;
+					ctx.restore();
+				}
+				if (options.rewards.indexOf('tyria') != -1) {
+					ctx.save();
+					ctx.drawImage(images.tyria, dxReward, 56);
+					dxReward += 40;
+					ctx.restore();
+				}
+				if (options.rewards.indexOf('maguuma') != -1) {
+					ctx.save();
+					ctx.drawImage(images.maguuma, dxReward, 56);
+					dxReward += 40;
+					ctx.restore();
+				}
+				if (options.rewards.indexOf('desert') != -1) {
+					ctx.save();
+					ctx.drawImage(images.desert, dxReward, 56);
+					dxReward += 40;
+					ctx.restore();
+				}
+				if (options.rewards.indexOf('tundra') != -1) {
+					ctx.save();
+					ctx.drawImage(images.tundra, dxReward, 56);
+					dxReward += 40;
+					ctx.restore();
+				}
 			}
 
 			break;
@@ -187,8 +236,8 @@ const draw = async (options) => {
 
 	// title
 	ctx.save();
-	ctx.shadowBlur = 3;
-	ctx.shadowColor = 'rgb(26, 26, 26)';
+	ctx.shadowBlur = 2;
+	ctx.shadowColor = 'rgb(0, 0, 0)';
 	ctx.fillStyle = 'White';
 	ctx.fillText(options.title, 108, 35);
 	ctx.restore();
@@ -198,14 +247,20 @@ const draw = async (options) => {
 
 (async () => {
 	Object.assign(images, {
-		background: await loadImage('img/502049.png'),
+		background: await loadImage('img/156000.png'),
 		gradient: await loadImage('img/605007.png'),
 		star1: await loadImage('img/605008.png'),
 		star2: await loadImage('img/605009.png'),
 		border: await loadImage('img/605003.png'),
+		tier: await loadImage('img/870381.png'),
 		progress: await loadImage('img/605002.png'),
 		eye: await loadImage('img/605021.png'),
 		ap: await loadImage('img/155062.png'),
+		title: await loadImage('img/605001.png'),
+		tyria: await loadImage('img/962103.png'),
+		maguuma: await loadImage('img/962065.png'),
+		desert: await loadImage('img/1770231.png'),
+		tundra: await loadImage('img/2221463.png'),
 	});
 
 	createServer(async (request, response) => {
