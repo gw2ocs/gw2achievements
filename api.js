@@ -158,7 +158,7 @@ const draw = async (options) => {
 			ctx.drawImage(images.border, 0, 0, 90, 90);
 			ctx.restore();
 
-			if (options.tier) {
+			if (options.tier && options.tier !== '0') {
 				ctx.drawImage(images.tier, 10 + 64 * ((options.tier - 1) % 8), options.tier > 8 ? 64 : 0, 44, 22, 31, 0, 28, 14);
 			}
 
@@ -182,7 +182,7 @@ const draw = async (options) => {
 
 			let dxReward = 118;
 
-			if (options.ap) {
+			if (options.ap && options.ap !== '0') {
 				ctx.save();
 				ctx.shadowBlur = 2;
 				ctx.shadowColor = 'rgb(0, 0, 0)';
