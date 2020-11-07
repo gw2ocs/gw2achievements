@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>GW2Achievements: tests</title>
+	<meta charset="UTF-8"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<meta name="color-scheme" content="dark">
+	<meta name="theme-color" content="1a1a1a"/>
+	<link rel="icon" type="image/png" sizes="64x64" href="/img/icon/2261498.png"/>
+	<meta name="author" content="Pandraghon"/>
+	<meta name="description" content="Generate your own Guild Wars 2 achievement and export it to any image format."/>
+	<style>
+		img {
+			width: 318px;
+			height: 90px;
+		}
+		
+		pre {
+			white-space: pre-wrap;
+			word-wrap: break-word;
+			text-align: justify;
+			min-width: 318px;
+		}
+
+		style {
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<h1>Playground</h1>
+	<p>You can edit the codes to do your own tests.</p>
+
+	<h2>Default</h2>
+	<pre><style contenteditable="true">#test1 {
+	background-image: url('https://assets.gw2achievements.com/Lorem%20ipsum.png');
+}</style></pre>
+	<img id="test1"/>
+	
+	<h2>Completed</h2>
+	<pre><style contenteditable="true">#test2 {
+	background-image: url('https://assets.gw2achievements.com/Lorem%20ipsum.png?state=completed');
+}</style></pre>
+	<img id="test2"/>
+
+	<h2>Progression</h2>
+	<pre><style contenteditable="true">#test3 {
+	background-image: url('https://assets.gw2achievements.com/Lorem%20ipsum.png?progress=2&goal=10');
+}</style></pre>
+	<img id="test3"/>
+
+	<h2>Theme</h2>
+	<pre><style contenteditable="true">#test4 {
+	background-image: url('https://assets.gw2achievements.com/Lorem%20ipsum.png?p=2&g=10&theme=pvp');
+}</style></pre>
+	<img id="test4"/>
+	
+	<h2>Icon</h2>
+	<pre><style contenteditable="true">#test5 {
+	background-image: url('https://assets.gw2achievements.com/Lorem%20ipsum.png?s=completed&t=community&icon=602784');
+}</style></pre>
+	<img id="test5"/>
+
+	<h2>AP</h2>
+	<pre><style contenteditable="true">#test6 {
+	background-image: url('https://assets.gw2achievements.com/Lorem%20ipsum.png?p=2&g=10&ap=5');
+}</style></pre>
+	<img id="test6"/>
+
+	<h2>Title</h2>
+	<pre><style contenteditable="true">#test7 {
+	background-image: url('https://assets.gw2achievements.com/Lorem%20ipsum.png?p=2&g=10&rewards=title');
+}</style></pre>
+	<img id="test7"/>
+</body>
+</html>
