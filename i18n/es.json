@@ -6,7 +6,7 @@
         "name": "Name",
         "format": "Format",
         "state": "State",
-        "completed": "Completed",
+        "completed": "Completado",
         "in_progress": "In progress",
         "progress": "Progress",
         "ap": "AP",

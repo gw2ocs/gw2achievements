@@ -16,14 +16,60 @@ const defaultOptions = {
 	ap: 2
 };
 
+const defaultLanguage = 'en';
+
+const languages = {
+	en: 'Completed',
+	fr: 'Terminé',
+	de: 'Abgeschlossen',
+	es: 'Completado'
+};
+
+const images = {};
+const mimes = {
+	'png': 'image/png',
+	'jpg': 'image/jpeg',
+	'jpeg': 'image/jpeg',
+};
+
+const logStyleReset = "\x1b[0m";
+//const logStyleUnderscore = "\x1b[4m";
+
+//const logStyleFgBlack = "\x1b[30m";
+const logStyleFgRed = "\x1b[31m";
+const logStyleFgGreen = "\x1b[32m";
+const logStyleFgYellow = "\x1b[33m";
+//const logStyleFgBlue = "\x1b[34m";
+const logStyleFgMagenta = "\x1b[35m";
+//const logStyleFgCyan = "\x1b[36m";
+//const logStyleFgWhite = "\x1b[37m";
+
+//const logStyleBgBlack = "\x1b[40m";
+//const logStyleBgRed = "\x1b[41m";
+//const logStyleBgGreen = "\x1b[42m";
+//const logStyleBgYellow = "\x1b[43m";
+const logStyleBgBlue = "\x1b[44m";
+//const logStyleBgMagenta = "\x1b[45m";
+//const logStyleBgCyan = "\x1b[46m";
+//const logStyleBgWhite = "\x1b[47m";
+
 const parse = (request) => {
 	const { pathname, searchParams } = new URL(request.url, `http://${request.headers.host}`);;
-	const [, title, ext] = decodeURIComponent(pathname).match(/^\/(.+)\.([\w\d]+)$/);
+	const match = decodeURIComponent(pathname).match(/^\/(.+)\.([\w\d]+)$/);
+	if (!match) {
+		return false;
+	}
+	const [, title, ext] = match;
+	if (!Object.keys(mimes).includes(ext)) {
+		return false;
+	}
 	const state = searchParams.get('state') || searchParams.get('s') || 'in_progress';  // "in_progress" | "completed"
 	const theme = searchParams.get('theme') || searchParams.get('t') || 'general';  // "general" | "wvw" | "pvp" | "legendary_bag" | "legendary_weapon" | "community" | "festival" | "dragons_stand"
 	const icon = searchParams.get('icon') || searchParams.get('i') || '2261498';
+	const language = searchParams.get('language') || searchParams.get('l') || defaultLanguage;
 	const options = {
-		title, ext, state, theme, icon
+		title, ext, state, theme, icon,
+		language: language in languages ? language : defaultLanguage
 	};
 	if (state === 'in_progress') {
 		const rewards = searchParams.get('rewards') || searchParams.get('r');
@@ -37,13 +83,6 @@ const parse = (request) => {
 	}
 	return options;
 }
-
-const images = {};
-const mimes = {
-	'png': 'image/png',
-	'jpg': 'image/jpeg',
-	'jpeg': 'image/jpeg',
-};
 
 const styleImage = (img, style, operation = 'overlay') => {
 	const width = img.width || img.naturalWidth;
@@ -118,7 +157,7 @@ const draw = async (options) => {
 			// completed
 			ctx.save();
 			ctx.fillStyle = theme.color;
-			ctx.fillText("Completed", 108, 62);
+			ctx.fillText(languages[options.language], 108, 62);
 			ctx.restore();
 
 			// border
@@ -264,15 +303,47 @@ const draw = async (options) => {
 	});
 
 	createServer(async (request, response) => {
+		const error = {
+			code: 500,
+			message: 'Internal Server Error'
+		};
 		try {
+			if (request.method !== 'GET') {
+				Object.assign(error, {
+					code: 405,
+					message: 'Method Not Allowed'
+				})
+				throw new Error('Method Not Allowed');
+			}
 			const options = parse(request);
-			response.write(await draw(options));
+			if (!options) {
+				response.writeHead(302, {
+					'Location': 'https://gw2achievements.com',
+					//add other headers here...
+				});
+			} else {
+				response.write(await draw(options));
+				response.writeHead(200, {
+					'Content-Type': mimes[options.ext] || 'image/png',
+				});
+			}
 			response.end();
-		} catch (error) {
-			console.error(error);
-			response.statusCode = 500;
-			response.statusMessage = 'Internal Server Error';
+		} catch (err) {
+			console.error(err);
+			response.statusCode = error.code;
+			response.statusMessage = error.message;
 			response.end();
+		} finally {
+			let statusColor = logStyleFgGreen;
+			if (response.statusCode) {
+				statusColor = {
+					2: logStyleFgGreen,
+					3: logStyleFgYellow,
+					4: logStyleFgMagenta,
+					5: logStyleFgRed
+				}[response.statusCode.toString()[0]];
+			}
+			console.log(`${logStyleBgBlue}${request.method}${logStyleReset} ${request.url} ${statusColor}${response.statusCode}${logStyleReset}`);
 		}
 	}).listen(3010);
 })();

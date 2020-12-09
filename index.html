@@ -249,6 +249,7 @@
 			const optionForm = document.querySelector('.option-form');
 			const nameInput = document.getElementById('name');
 			const formatInput = document.getElementById('format');
+			const languageInput = document.getElementById('language');
 			const stateInput = document.getElementById('state');
 			const progressInput = document.getElementById('progress');
 			const goalInput = document.getElementById('goal');
@@ -264,6 +265,7 @@
 				params.set('t', achievement.dataset.theme);
 				const state = stateInput.value
 				params.set('s', state);
+				params.set('l', languageInput.value);
 				if (state === 'in_progress') {
 					params.set('p', progressInput.value);
 					params.set('g', goalInput.value);
@@ -434,6 +436,15 @@
 				<div class="input-row half-row">
 					<label for="tier" data-t="options.tier">Tier</label>
 					<input type="number" name="tier" id="tier" value="1" min="0" max="12"/>
+				</div>
+				<div class="input-row half-row">
+					<label for="language" data-t="options.language">Language</label>
+					<select name="language" id="language">
+						<option value="en" selected>English</option>
+						<option value="fr">Français</option>
+						<option value="de">Deutsch</option>
+						<option value="es">Español</option>
+					</select>
 				</div>
 				<div class="action-row full-row">
 					<button type="submit" data-t="options.generate">Generate</button>
