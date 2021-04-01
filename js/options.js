@@ -37,6 +37,14 @@ const options = {
 		dragons_stand: {
 			background: 'hsl(308, 52%, 48%)',
 			color: 'hsl(308, 52%, 58%)'
+		},
+		auric_basin: {
+			background: 'hsl(57, 83%, 65%)',
+			color: 'hsl(57, 83%, 76%)'
+		},
+		tangled_depths: {
+			background: 'hsl(183, 79%, 75%)',
+			color: 'hsl(183, 79%, 85%)'
 		}
 	},
 
