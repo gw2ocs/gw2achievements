@@ -39,14 +39,7 @@
 			border: 2px solid var(--scrollbar-background);
 		}
 
-		.layout-header {
-			grid-area: header;
-			text-align: left;
-			/*background-image: url(img/ui/header_background.png);*/
-			background-size: 100% 100%;
-		}
-
-		.layout-header h1 {
+		h1 {
 			margin: 0;
 			font-weight: normal;
 		}
@@ -57,9 +50,8 @@
 			display: flex;
 			flex-direction: column;
 			align-items: center;
-			justify-content: center;
+			justify-content: space-between;
 			background-image: radial-gradient(#2b2b2b, var(--background-color));
-			box-shadow: 0 0 16px 0px black inset;
 		}
 
 		.layout-aside {
@@ -78,11 +70,10 @@
 		body {
 			display: grid;
 			grid-template-areas: 
-				"header header"
 				"aside main"
 				"aside footer";
 			grid-template-columns: 30% 70%;
-			grid-template-rows: auto 1fr auto;
+			grid-template-rows: 1fr auto;
 			font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 			height: 100vh;
 			margin: 0;
@@ -100,32 +91,23 @@
 			color: ghostwhite;
 		}
 
-		.results {
+		.result {
+			flex: 1;
 			display: flex;
-			flex-direction: row;
-			flex-wrap: wrap;
+			flex-direction: column;
+			justify-content: center;
 			align-items: center;
-			justify-content: space-evenly;
-			overflow-y: auto;
+			text-align: center;
+			width: 100%;
+			box-shadow: 0 0 16px 0px black inset;
 		}
 
 		.options {
-			display: flex;
-			flex-direction: column;
-			flex-wrap: nowrap;
-			justify-content: flex-start;
-		}
-
-		.options details {
 			width: 100%;
 			min-height: 0;
 		}
 
-		.options details[open] {
-			flex: 1;
-		}
-
-		.options summary {
+		.options header {
 			background-color: dimgray;
 			background-image: url(img/ui/summary_background.png);
 			background-size: 100% 100%;
@@ -159,6 +141,11 @@
 			display: block;
 		}
 
+		.thumbnail-list button {
+			background: transparent;
+			border: none;
+		}
+
 		.theme-list button {
 			width: 64px;
 			height: 64px;
@@ -166,6 +153,18 @@
 
 		.layout-main > p {
 			margin-bottom: 0;
+		}
+
+		.input-row {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin: 4px 0;
+		}
+
+		.input-row label {
+			width: 100px;
+			padding-left: 4px;
 		}
 
 		.full-row {
@@ -182,13 +181,24 @@
 			align-items: center;
 		}
 
-		.input-group input {
+		.input-row input,
+		.input-row select,
+		.input-row .input-group {
 			flex: 1;
 		}
 
-		.input-row > input,
-		.input-row > select {
-			width: 100%;;
+		input,
+		select {
+			font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+			color: var(--text-color);
+			background-color: rgba(250, 235, 215, .1);
+			border: none;
+			border-bottom: 1px solid currentColor;
+			padding: 2px 4px;
+		}
+
+		select > option {
+			color: initial;
 		}
 
 		.action-row {
@@ -199,7 +209,7 @@
 			width: 500px;;
 		}
 
-		@media (max-width: 600px) {
+		@media (max-width: 730px) {
 			body {
 				display: grid;
 				grid-template-areas: 
@@ -209,6 +219,7 @@
 					"footer";
 				grid-template-columns: 100%;
 				grid-template-rows: auto 1fr auto auto;
+				height: initial;
 			}
 
 			.layout-header h1 {
@@ -216,7 +227,12 @@
 			}
 
 			.options {
-				justify-content: flex-end;
+				max-height: 512px;
+				overflow-y: auto;
+			}
+
+			.half-row {
+				width: 100%;
 			}
 		}
 	</style>
@@ -371,37 +387,12 @@
 </head>
 <body>
 	<header class="layout-header">
-		<h1>GW2Achievements</h1>
+		
 	</header>
 	
 	<main class="layout-main">
-		<p>
-			<img width="318" height="90" id="achievement" data-icon="2261498" data-theme="general"/>
-		</p>
-		<p>
-			<span data-t="main.image_file">Image file:</span>
-			<button class="js-save" data-t="main.save">Save</button>
-			<a class="js-download" hidden></a>
-		</p>
-		<p>
-			<label data-t="main.image_link">Image link:</label>
-			<input type="text" id="image-link" name="image-link"/>
-		</p>
-	</main>
-
-	<aside class="layout-aside options">
-		<details open>
-			<summary data-t="options.thumbnail">Thumbnail</summary>
-			<ul class="thumbnail-list">
-			</ul>
-		</details>
-		<details open>
-			<summary data-t="options.theme">Theme</summary>
-			<ul class="theme-list">
-			</ul>
-		</details>
-		<details open>
-			<summary data-t="options.configuration">Configuration</summary>
+		<section class="options">
+			<header><h1>GW2Achievements</h1></header>
 			<form class="option-form">
 				<div class="input-row full-row">
 					<label for="name" data-t="options.name">Name</label>
@@ -450,7 +441,34 @@
 					<button type="submit" data-t="options.generate">Generate</button>
 				</div>
 			</form>
-		</details>
+		</section>
+		<section class="result">
+			<p>
+				<img width="318" height="90" id="achievement" data-icon="2261498" data-theme="general"/>
+			</p>
+			<p>
+				<span data-t="main.image_file">Image file:</span>
+				<button class="js-save" data-t="main.save">Save</button>
+				<a class="js-download" hidden></a>
+			</p>
+			<p>
+				<label data-t="main.image_link">Image link:</label>
+				<input type="text" id="image-link" name="image-link"/>
+			</p>
+		</section>
+		<section class="options">
+			<header data-t="options.theme">Theme</header>
+			<ul class="theme-list">
+			</ul>
+		</section>
+	</main>
+
+	<aside class="layout-aside">
+		<section class="options">
+			<header data-t="options.thumbnail">Thumbnail</header>
+			<ul class="thumbnail-list">
+			</ul>
+		</section>
 	</aside>
 
 	<footer class="layout-footer">
