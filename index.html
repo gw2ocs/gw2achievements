@@ -360,6 +360,7 @@
 					fields[i].style.visibility = visible ? 'visible' : 'hidden';
 				}
 			});
+			[...optionForm.elements].forEach(el => el.dispatchEvent(new Event('change', { 'bubbles': true })));
 
 			// save
 			saveButton.addEventListener('click', (e) => {
