@@ -349,6 +349,17 @@
 				render();
 				return false;
 			});
+			optionForm.addEventListener('change', (event) => {
+				const { target: { name, value } } = event;
+				const fields = document.querySelectorAll(`*[data-visible-if^="${name}"]`);
+				for (let i = 0, imax = fields.length ; i < imax ; i++) {
+					const test = fields[i].dataset.visibleIf.split('=');
+					const visible = test.length > 1
+						? String(value) === test[1] 
+						: Boolean(value);
+					fields[i].style.visibility = visible ? 'visible' : 'hidden';
+				}
+			});
 
 			// save
 			saveButton.addEventListener('click', (e) => {
@@ -416,7 +427,7 @@
 						<option value="in_progress" data-t="options.in_progress">In progress</option>
 					</select>
 				</div>
-				<div class="input-row full-row">
+				<div class="input-row full-row" data-visible-if="state=in_progress">
 					<label for="progress" data-t="options.progress">Progress</label>
 					<div class="input-group">
 						<input type="number" name="progress" id="progress" value="1"/>
@@ -424,11 +435,11 @@
 						<input type="number" name="goal" id="goal" value="4"/>
 					</div>
 				</div>
-				<div class="input-row full-row">
+				<div class="input-row full-row" data-visible-if="state=in_progress">
 					<label for="ap" data-t="options.ap">AP</label>
 					<input type="number" name="ap" id="ap" value="5"/>
 				</div>
-				<div class="input-row full-row">
+				<div class="input-row full-row" data-visible-if="state=in_progress">
 					<label for="tier" data-t="options.tier">Tier</label>
 					<input type="number" name="tier" id="tier" value="1" min="0" max="12"/>
 				</div>
