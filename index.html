@@ -357,7 +357,7 @@
 					const visible = test.length > 1
 						? String(value) === test[1] 
 						: Boolean(value);
-					fields[i].style.display = visible ? 'initial' : 'none';
+					fields[i].style.display = visible ? 'flex' : 'none';
 				}
 			});
 			[...optionForm.elements].forEach(el => el.dispatchEvent(new Event('change', { 'bubbles': true })));
