@@ -17,6 +17,9 @@ const defaultOptions = {
 };
 
 const defaultLanguage = 'en';
+const dpr = 2;
+const width = 318;
+const height = 90;
 
 const languages = {
 	en: 'Completed',
@@ -98,15 +101,18 @@ const styleImage = (img, style, operation = 'overlay') => {
 
 const draw = async (options) => {
 
-	const canvas = createCanvas(318, 90);
+	const canvas = createCanvas(width, height);
+	canvas.width = width * dpr;
+	canvas.height = height * dpr;
 	const ctx = canvas.getContext('2d');
+	ctx.scale(dpr, dpr);
 
 	const theme = themes[options.theme];
 
 	ctx.font = '14px "Trebuchet MS", Helvetica, sans-serif';
 
 	// background
-	ctx.drawImage(images.background, 292, 287, canvas.width, canvas.height, 0, 0, canvas.width, canvas.height);
+	ctx.drawImage(images.background, 292, 287, width, height, 0, 0, width, height);
 
 	switch (options.state) {
 		case 'completed':
@@ -114,7 +120,7 @@ const draw = async (options) => {
 			// background
 			ctx.save();
 			ctx.fillStyle = 'rgba(0, 0, 0, 0.4)';
-			ctx.fillRect(0, 0, canvas.width, canvas.height);
+			ctx.fillRect(0, 0, width, height);
 			ctx.restore();
 
 			ctx.save();
@@ -127,7 +133,7 @@ const draw = async (options) => {
 
 			// draw image
 			//ctx.drawImage(await loadImage('img/605007.png'), 0, 0, canvas.width, canvas.height);
-			ctx.drawImage(styleImage(images.gradient, theme.background, 'source-in'), 0, 0, canvas.width, canvas.height);
+			ctx.drawImage(styleImage(images.gradient, theme.background, 'source-in'), 0, 0, width, height);
 
 			// fill background
 			/*ctx.globalCompositeOperation = "destination-over";
@@ -141,7 +147,7 @@ const draw = async (options) => {
 			gradient.addColorStop(0, theme.background);
 			gradient.addColorStop(1, 'rgba(26,26,26,0)');
 			ctx.fillStyle = gradient;
-			ctx.fillRect(0, 0, canvas.width, canvas.height);
+			ctx.fillRect(0, 0, width, height);
 			ctx.restore();
 
 			// stars
@@ -163,11 +169,11 @@ const draw = async (options) => {
 			// border
 			ctx.save();
 			const borderImage = images.border;
-			const f = canvas.height / borderImage.height;
+			const f = height / borderImage.height;
 			const dx = 12;
-			ctx.drawImage(borderImage, 0, 0, dx, borderImage.height, 0, 0, dx * f, canvas.height);
-			ctx.drawImage(borderImage, borderImage.width - dx, 0, dx, borderImage.height, canvas.width - dx * f, 0, dx * f, canvas.height);
-			ctx.drawImage(borderImage, dx, 0, borderImage.width - 2 * dx, borderImage.height, dx * f, 0, canvas.width - 2 * dx * f, canvas.height);
+			ctx.drawImage(borderImage, 0, 0, dx, borderImage.height, 0, 0, dx * f, height);
+			ctx.drawImage(borderImage, borderImage.width - dx, 0, dx, borderImage.height, width - dx * f, 0, dx * f, height);
+			ctx.drawImage(borderImage, dx, 0, borderImage.width - 2 * dx, borderImage.height, dx * f, 0, width - 2 * dx * f, height);
 			ctx.restore();
 
 			break;
@@ -177,7 +183,7 @@ const draw = async (options) => {
 			//background
 			ctx.save();
 			ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
-			ctx.fillRect(0, 0, canvas.width, canvas.height);
+			ctx.fillRect(0, 0, width, height);
 			ctx.restore();
 
 			// icon
@@ -213,11 +219,11 @@ const draw = async (options) => {
 			// bottom background
 			ctx.save();
 			ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
-			ctx.fillRect(90, 58, canvas.width - 90, 32);
+			ctx.fillRect(90, 58, width - 90, 32);
 			ctx.restore();
 
-			ctx.drawImage(await loadImage('img/605011.png'), canvas.width - 32, canvas.height - 32);
-			ctx.drawImage(images.eye, canvas.width - 32, canvas.height - 32);
+			ctx.drawImage(await loadImage('img/605011.png'), width - 32, height - 32);
+			ctx.drawImage(images.eye, width - 32, height - 32);
 
 			let dxReward = 118;
 
@@ -280,6 +286,9 @@ const draw = async (options) => {
 	ctx.fillStyle = 'White';
 	ctx.fillText(options.title, 108, 35);
 	ctx.restore();
+
+	//canvas.width = width;
+	//canvas.height = height;
 
 	return canvas.toBuffer(mimes[options.ext] || 'image/png');
 };
