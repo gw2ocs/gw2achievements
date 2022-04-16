@@ -1,5 +1,6 @@
 const { createCanvas, loadImage, registerFont } = require('canvas');
 const { createServer } = require('http');
+const { fitText } = require('./lib/multiline.js'); 
 const { themes } = require('./js/options.js');
 
 registerFont('font/trebuc.ttf', { family: 'Trebuchet MS' });
@@ -57,7 +58,7 @@ const logStyleBgBlue = "\x1b[44m";
 //const logStyleBgWhite = "\x1b[47m";
 
 const parse = (request) => {
-	const { pathname, searchParams } = new URL(request.url, `http://${request.headers.host}`);;
+	const { pathname, searchParams } = new URL(request.url, `http://${request.headers.host}`);
 	const match = decodeURIComponent(pathname).match(/^\/(.+)\.([\w\d]+)$/);
 	if (!match) {
 		return false;
@@ -111,6 +112,10 @@ const draw = async (options) => {
 
 	ctx.font = '14px "Trebuchet MS", Helvetica, sans-serif';
 
+	// split title in lines
+	const lines = fitText(options.title, 205, 'Trebuchet MS', 14);
+	const linesCount = lines.length > 4 ? 4 : lines.length;
+
 	// background
 	ctx.drawImage(images.background, 292, 287, width, height, 0, 0, width, height);
 
@@ -163,7 +168,7 @@ const draw = async (options) => {
 			// completed
 			ctx.save();
 			ctx.fillStyle = theme.color;
-			ctx.fillText(languages[options.language], 108, 62);
+			ctx.fillText(languages[options.language], 108, 61 + (linesCount - 1) * 8);
 			ctx.restore();
 
 			// border
@@ -284,7 +289,10 @@ const draw = async (options) => {
 	ctx.shadowBlur = 2;
 	ctx.shadowColor = 'rgb(0, 0, 0)';
 	ctx.fillStyle = 'White';
-	ctx.fillText(options.title, 108, 35);
+	const titleStart = 35 - (linesCount - 1) * 8;
+	for (let i = 0 ; i < linesCount ; i++) {
+		ctx.fillText(lines[i], 108, titleStart + i * 16);
+	}
 	ctx.restore();
 
 	//canvas.width = width;
