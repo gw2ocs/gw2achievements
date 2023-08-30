@@ -35,6 +35,11 @@ const mimes = {
 	'jpg': 'image/jpeg',
 	'jpeg': 'image/jpeg',
 };
+const mimesFn = {
+	'png': 'createPNGStream',
+	'jpg': 'createJPEGStream',
+	'jpeg': 'createJPEGStream',
+};
 
 const logStyleReset = "\x1b[0m";
 //const logStyleUnderscore = "\x1b[4m";
@@ -298,7 +303,7 @@ const draw = async (options) => {
 	//canvas.width = width;
 	//canvas.height = height;
 
-	return canvas.toBuffer(mimes[options.ext] || 'image/png');
+	return canvas;
 };
 
 (async () => {
@@ -338,13 +343,14 @@ const draw = async (options) => {
 					'Location': 'https://gw2achievements.com',
 					//add other headers here...
 				});
+				response.end();
 			} else {
-				response.write(await draw(options));
+				const img = await draw(options);
 				response.writeHead(200, {
 					'Content-Type': mimes[options.ext] || 'image/png',
 				});
+				img[mimesFn[options.ext] || 'createPNGStream']().pipe(response);
 			}
-			response.end();
 		} catch (err) {
 			console.error(err);
 			response.statusCode = error.code;
